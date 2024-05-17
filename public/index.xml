@@ -72,6 +72,13 @@
       <description>2024-05-16 Link to heading 28.实现strStr() Link to heading 14:40&#xA;思路 Link to heading 需要计算出来next数组&#xA;从前到后遍历匹配字符串 如果前后缀不同，则回退，没必要回退到开头，可以会退到上一个next对应的位置 如果匹配则j++ 然后更具next数组进行匹配 当不匹配的时候将j移动到next[j]的位置直到匹配成功 匹配成功则向后移动j j等于匹配串长度的时候则说明匹配成功 复杂度 Link to heading 时间复杂度: O(n + m) 空间复杂度: O(m), 只需要保存字符串needle的前缀表 题解 Link to heading C++ Link to heading class Solution { public: //获得next表下一个 void getNext(int* next, const string&amp;amp; s){ //初始化 int j = -1; next[0] = j; //从前往后遍历s字符串 for(int i = 1 ; i &amp;lt; s.size() ; i++){ //如果前后缀不同，则回退，没必要回退，到开头可以会退到上一个next对应的位置 while(j &amp;gt;= 0 &amp;amp;&amp;amp; s[i] !</description>
     </item>
     <item>
+      <title></title>
+      <link>http://localhost:1313/google8a71bfe3829e4cd4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/google8a71bfe3829e4cd4/</guid>
+      <description>google-site-verification: google8a71bfe3829e4cd4.</description>
+    </item>
+    <item>
       <title>About</title>
       <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

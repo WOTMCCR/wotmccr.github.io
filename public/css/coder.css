@@ -10653,10 +10653,10 @@ figure {
   list-style: none;
   padding: 0; }
   .list ul li {
-    font-size: 2rem;
-    margin: 1.5rem 0;
-    border-bottom: 1px solid #ece;
-    padding-bottom: 1rem; }
+    font-size: 1.8rem;
+    margin: 1.6rem 0 1.6rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee; }
     @media only screen and (max-width: 768px) {
       .list ul li {
         margin: 1.6rem 0 1.6rem 0; } }
@@ -10664,8 +10664,9 @@ figure {
       display: inline-block;
       flex: 1;
       width: 20rem;
-      text-align: right;
-      margin-right: 5rem; }
+      text-align: left;
+      margin-left: 3rem;
+      margin-right: 3rem; }
       @media only screen and (max-width: 768px) {
         .list ul li .date {
           display: block;
