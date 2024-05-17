@@ -9,6 +9,9 @@ paginate = 20
 # [services]
 # [services.disqus]
 # disqusShortname = "yourdiscussshortname"
+[services]
+  [services.googleAnalytics]
+    ID = 'G-MEASUREMENT_ID'
 
 [markup.highlight]
 style = "github-dark"
@@ -17,9 +20,9 @@ style = "github-dark"
   author = "CCR"
   info = "If you want to be Happy, be."
   description = "CCR's personal website"
-  keywords = "blog,developer,personal"
+  keywords = "Better,Faster,Stronger,"
 #   全在static目录下
-  avatarurl = "images/me.png"
+  avatarurl = "images/me.jpeg"
   #gravatar = "john.doe@example.com"
 
   faviconSVG = "/img/favicon.svg"
