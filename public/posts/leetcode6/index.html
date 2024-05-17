@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  2024-05-15刷题 · WOTMCCR&#39;S BLOG
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="CCR">
+<meta name="description" content="454.四数相加II  383. 赎金信  15. 三数之和  18. 四数之和">
+<meta name="keywords" content="blog,developer,personal">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="2024-05-15刷题">
+  <meta name="twitter:description" content="454.四数相加II  383. 赎金信  15. 三数之和  18. 四数之和">
+
+<meta property="og:url" content="http://localhost:1313/posts/leetcode6/">
+  <meta property="og:site_name" content="WOTMCCR&#39;S BLOG">
+  <meta property="og:title" content="2024-05-15刷题">
+  <meta property="og:description" content="454.四数相加II  383. 赎金信  15. 三数之和  18. 四数之和">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-15T00:00:00+00:00">
+    <meta property="article:tag" content="Leetcode">
+    <meta property="article:tag" content="哈希表">
+    <meta property="article:tag" content="双指针">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/leetcode6/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      WOTMCCR&#39;S BLOG
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/categories/">Categories</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/leetcode6/">
+              2024-05-15刷题
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-05-15T00:00:00Z">
+                May 15, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/leetcode/">Leetcode</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="2024-05-15刷题">
+  2024-05-15刷题
+  <a class="heading-link" href="#2024-05-15%e5%88%b7%e9%a2%98">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="454-四数相加-ii">
+  454. 四数相加 II
+  <a class="heading-link" href="#454-%e5%9b%9b%e6%95%b0%e7%9b%b8%e5%8a%a0-ii">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>09:02 09:51</p>
+<h4 id="思路">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>将前两数的和放到map中，并且统计数量
+将后两个数的和的相反数判断是否存在hashmap里，如果存在，则将，所有等于的值的数量添加到返回值中</p>
+<h4 id="复杂度">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>时间复杂度：$O(n^2)$
+空间复杂度：$O(n^2)$</p>
+<h4 id="注意">
+  注意⚠️
+  <a class="heading-link" href="#%e6%b3%a8%e6%84%8f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>使用auto进行遍历map，不要太像C的写法</p>
+<h4 id="题解">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c">
+  C++
+  <a class="heading-link" href="#c">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">int</span> fourSumCount(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums1, vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums2, vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums3, vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums4) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">int</span> n <span style="color:#ff7b72;font-weight:bold">=</span> nums1.size();
+</span></span><span style="display:flex;"><span>        unordered_map<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span>,<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> val;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">int</span> num <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//遍历num1 ， num2
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">auto</span> <span style="color:#79c0ff;font-weight:bold">i</span> : nums1){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">auto</span> <span style="color:#79c0ff;font-weight:bold">j</span> : nums2){
+</span></span><span style="display:flex;"><span>                val[i<span style="color:#ff7b72;font-weight:bold">+</span>j]<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//遍历num3，num4
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">auto</span> <span style="color:#79c0ff;font-weight:bold">i</span> : nums3){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">auto</span> <span style="color:#79c0ff;font-weight:bold">j</span> : nums4){
+</span></span><span style="display:flex;"><span>                num <span style="color:#ff7b72;font-weight:bold">+=</span> val[<span style="color:#ff7b72;font-weight:bold">-</span>i<span style="color:#ff7b72;font-weight:bold">-</span>j];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> num;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h5 id="java">
+  java
+  <a class="heading-link" href="#java">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">fourSumCount</span>(<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>nums1,<span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>nums2,<span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>nums3,<span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>nums4)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>Map<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer,Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>val<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>HashMap<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer,Integer<span style="color:#ff7b72;font-weight:bold">&gt;</span>();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>u<span style="color:#6e7681"> </span>:<span style="color:#6e7681"> </span>nums1){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>v<span style="color:#6e7681"> </span>:<span style="color:#6e7681"> </span>nums2){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>val.put(u<span style="color:#ff7b72;font-weight:bold">+</span>v,val.getOrDefault(u<span style="color:#ff7b72;font-weight:bold">+</span>v,0)<span style="color:#ff7b72;font-weight:bold">+</span>1);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>num<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>0;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>u:nums3){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>v:nums4){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#ff7b72">if</span>(val.containsKey(<span style="color:#ff7b72;font-weight:bold">-</span>u<span style="color:#ff7b72;font-weight:bold">-</span>v))<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>num<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+=</span><span style="color:#6e7681"> </span>val.get(<span style="color:#ff7b72;font-weight:bold">-</span>u<span style="color:#ff7b72;font-weight:bold">-</span>v);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>num;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h5 id="go">
+  go
+  <a class="heading-link" href="#go">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff7b72">func</span> <span style="color:#d2a8ff;font-weight:bold">fourSumCount</span>(nums1 []<span style="color:#ff7b72">int</span>, nums2 []<span style="color:#ff7b72">int</span>, nums3 []<span style="color:#ff7b72">int</span>, nums4 []<span style="color:#ff7b72">int</span>) <span style="color:#ff7b72">int</span> {
+</span></span><span style="display:flex;"><span>        sum1 <span style="color:#ff7b72;font-weight:bold">:=</span> <span style="color:#ff7b72">map</span>[<span style="color:#ff7b72">int</span>]<span style="color:#ff7b72">int</span>{}
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> _,u<span style="color:#ff7b72;font-weight:bold">:=</span> <span style="color:#ff7b72">range</span> nums1 {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">for</span> _,v <span style="color:#ff7b72;font-weight:bold">:=</span> <span style="color:#ff7b72">range</span> nums2 {
+</span></span><span style="display:flex;"><span>                sum1[u<span style="color:#ff7b72;font-weight:bold">+</span>v]<span style="color:#ff7b72;font-weight:bold">++</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        result <span style="color:#ff7b72;font-weight:bold">:=</span> <span style="color:#a5d6ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> _,u <span style="color:#ff7b72;font-weight:bold">:=</span> <span style="color:#ff7b72">range</span> nums3 {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">for</span> _,v <span style="color:#ff7b72;font-weight:bold">:=</span> <span style="color:#ff7b72">range</span> nums4 {
+</span></span><span style="display:flex;"><span>                result <span style="color:#ff7b72;font-weight:bold">+=</span> sum1[<span style="color:#ff7b72;font-weight:bold">-</span>u<span style="color:#ff7b72;font-weight:bold">-</span>v];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="swift">
+  swift
+  <a class="heading-link" href="#swift">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">func</span> <span style="color:#d2a8ff;font-weight:bold">fourSumCount</span>(<span style="color:#79c0ff">_</span> nums1: [Int], <span style="color:#79c0ff">_</span> nums2: [Int], <span style="color:#79c0ff">_</span> nums3: [Int], <span style="color:#79c0ff">_</span> nums4: [Int]) -&gt; Int {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">var</span> <span style="color:#79c0ff">map</span> = [Int: Int]()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">// Populate the map with sums of elements from nums1 and nums2</span>
+</span></span><span style="display:flex;"><span>    nums1.forEach { num1 <span style="color:#ff7b72">in</span>
+</span></span><span style="display:flex;"><span>        nums2.forEach { num2 <span style="color:#ff7b72">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">let</span> <span style="color:#79c0ff">sum</span> = num1 <span style="color:#ff7b72;font-weight:bold">+</span> num2
+</span></span><span style="display:flex;"><span>            map[sum, <span style="color:#ff7b72">default</span>: <span style="color:#a5d6ff">0</span>] <span style="color:#ff7b72;font-weight:bold">+=</span> <span style="color:#a5d6ff">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">var</span> <span style="color:#79c0ff">count</span> = <span style="color:#a5d6ff">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">// Check for sums in nums3 and nums4 that negate the sums in the map</span>
+</span></span><span style="display:flex;"><span>    nums3.forEach { num3 <span style="color:#ff7b72">in</span>
+</span></span><span style="display:flex;"><span>        nums4.forEach { num4 <span style="color:#ff7b72">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">let</span> <span style="color:#79c0ff">target</span> = <span style="color:#ff7b72;font-weight:bold">-</span>(num3 <span style="color:#ff7b72;font-weight:bold">+</span> num4)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> <span style="color:#ff7b72">let</span> <span style="color:#79c0ff">occurrences</span> = map[target] {
+</span></span><span style="display:flex;"><span>                count <span style="color:#ff7b72;font-weight:bold">+=</span> occurrences
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> count
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="383赎金信">
+  383.赎金信
+  <a class="heading-link" href="#383%e8%b5%8e%e9%87%91%e4%bf%a1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>12:43</p>
+<h4 id="思路-1">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>将magazine中的字符添加到map中，然后使用ransomNote中的字符进行匹配判断是否对应</p>
+<h4 id="复杂度-1">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>时间复杂度：O(m+n)</p>
+<h4 id="题解-1">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c-1">
+  C++
+  <a class="heading-link" href="#c-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">bool</span> canConstruct(string ransomNote, string magazine) {
+</span></span><span style="display:flex;"><span>        unordered_map<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">char</span>,<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> str1;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span>; i<span style="color:#ff7b72;font-weight:bold">&lt;</span>magazine.length();i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            str1[magazine[i]]<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span> ; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> ransomNote.length() ; i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(<span style="color:#ff7b72;font-weight:bold">--</span>str1[ransomNote[i]] <span style="color:#ff7b72;font-weight:bold">&lt;</span> <span style="color:#a5d6ff">0</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">return</span> false;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> true;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h5 id="java-1">
+  java
+  <a class="heading-link" href="#java-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">boolean</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">canConstruct</span>(String<span style="color:#6e7681"> </span>ransomNote,<span style="color:#6e7681"> </span>String<span style="color:#6e7681"> </span>magazine)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">if</span>(ransomNote.length()<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>magazine.length()){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span><span style="color:#79c0ff">false</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>cnt<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">[</span>26<span style="color:#ff7b72;font-weight:bold">]</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">char</span><span style="color:#6e7681"> </span>c<span style="color:#6e7681"> </span>:<span style="color:#6e7681"> </span>magazine.toCharArray()){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>cnt<span style="color:#ff7b72;font-weight:bold">[</span>c<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;a&#39;</span><span style="color:#ff7b72;font-weight:bold">]++</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">char</span><span style="color:#6e7681"> </span>c:<span style="color:#6e7681"> </span>ransomNote.toCharArray()){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>cnt<span style="color:#ff7b72;font-weight:bold">[</span>c<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">&#39;a&#39;</span><span style="color:#ff7b72;font-weight:bold">]--</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">if</span>(cnt<span style="color:#ff7b72;font-weight:bold">[</span>c<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#39;a&#39;</span><span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#6e7681"> </span>0){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span><span style="color:#79c0ff">false</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span><span style="color:#79c0ff">true</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h5 id="go-1">
+  go
+  <a class="heading-link" href="#go-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff7b72">func</span> <span style="color:#d2a8ff;font-weight:bold">canConstruct</span>(ransomNote <span style="color:#ff7b72">string</span>, magazine <span style="color:#ff7b72">string</span>) <span style="color:#ff7b72">bool</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> len(ransomNote) &gt; len(magazine) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">false</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cnt <span style="color:#ff7b72;font-weight:bold">:=</span> [<span style="color:#a5d6ff">26</span>]<span style="color:#ff7b72">int</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> _,ch <span style="color:#ff7b72;font-weight:bold">:=</span> <span style="color:#ff7b72">range</span> magazine {
+</span></span><span style="display:flex;"><span>        cnt[ch <span style="color:#ff7b72;font-weight:bold">-</span> <span style="color:#a5d6ff">&#39;a&#39;</span>]<span style="color:#ff7b72;font-weight:bold">++</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> _,ch <span style="color:#ff7b72;font-weight:bold">:=</span> <span style="color:#ff7b72">range</span> ransomNote {
+</span></span><span style="display:flex;"><span>        cnt[ch <span style="color:#ff7b72;font-weight:bold">-</span> <span style="color:#a5d6ff">&#39;a&#39;</span>]<span style="color:#ff7b72;font-weight:bold">--</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> cnt[ch <span style="color:#ff7b72;font-weight:bold">-</span> <span style="color:#a5d6ff">&#39;a&#39;</span>] &lt; <span style="color:#a5d6ff">0</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="swift-1">
+  swift
+  <a class="heading-link" href="#swift-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">func</span> <span style="color:#d2a8ff;font-weight:bold">canConstruct</span>(<span style="color:#79c0ff">_</span> ransomNote: String, <span style="color:#79c0ff">_</span> magazine: String) -&gt; Bool {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">var</span> <span style="color:#79c0ff">record</span> = Array(repeating:<span style="color:#a5d6ff">0</span>,count:<span style="color:#a5d6ff">26</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">let</span> <span style="color:#79c0ff">aUnicodeScalarValue</span> = <span style="color:#a5d6ff">&#34;a&#34;</span>.unicodeScalars.first!.value
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> unicodeScalar <span style="color:#ff7b72">in</span> magazine.unicodeScalars {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">let</span> <span style="color:#79c0ff">idx</span> : Int = Int(unicodeScalar.value <span style="color:#ff7b72;font-weight:bold">-</span> aUnicodeScalarValue)
+</span></span><span style="display:flex;"><span>            record[idx] <span style="color:#ff7b72;font-weight:bold">+=</span> <span style="color:#a5d6ff">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> unicodeScalar <span style="color:#ff7b72">in</span> ransomNote.unicodeScalars {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">let</span> <span style="color:#79c0ff">idx</span> : Int = Int(unicodeScalar.value <span style="color:#ff7b72;font-weight:bold">-</span> aUnicodeScalarValue)
+</span></span><span style="display:flex;"><span>            record[idx] <span style="color:#ff7b72;font-weight:bold">-=</span> <span style="color:#a5d6ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> record[idx] <span style="color:#ff7b72;font-weight:bold">&lt;</span> <span style="color:#a5d6ff">0</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">false</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="15三数之和">
+  15.三数之和
+  <a class="heading-link" href="#15%e4%b8%89%e6%95%b0%e4%b9%8b%e5%92%8c">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>15:17</p>
+<h4 id="思路-2">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>先排序
+然后固定一个左指针从左往右进行遍历，然后新建两个指针，对右边的区域从两端开始进行遍历
+如果，右区域的遍历指针遇到重复的元素，即进行去重处理。
+如果左侧的指针当前元素等于前一个元素也即进行去重。</p>
+<h4 id="复杂度-2">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>时间复杂度: $O(n^2)$</li>
+<li>空间复杂度: O(1)</li>
+</ul>
+<h4 id="注意-1">
+  注意⚠️
+  <a class="heading-link" href="#%e6%b3%a8%e6%84%8f-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>去重逻辑应在找到一个三元组之后,因为排过序了</p>
+<h4 id="题解-2">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c-2">
+  C++
+  <a class="heading-link" href="#c-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span> threeSum(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums) {
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span> result;
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//排序
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        sort(nums.begin(),nums.end());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//从左开始遍历
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span>;i<span style="color:#ff7b72;font-weight:bold">&lt;</span>nums.size();i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//如果起始元素&gt;0可以剪枝
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#ff7b72">if</span>(nums[i]<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#a5d6ff">0</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//起始去重
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#ff7b72">if</span>(i<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#a5d6ff">0</span> <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[i] <span style="color:#ff7b72;font-weight:bold">==</span> nums[i<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>]){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">continue</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//右区间开始相向遍历
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#ff7b72">int</span> left <span style="color:#ff7b72;font-weight:bold">=</span> i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">int</span> right <span style="color:#ff7b72;font-weight:bold">=</span> nums.size()<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">while</span>(left <span style="color:#ff7b72;font-weight:bold">&lt;</span> right){
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//和大于0，则right--
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#ff7b72">if</span>(nums[i]<span style="color:#ff7b72;font-weight:bold">+</span>nums[left]<span style="color:#ff7b72;font-weight:bold">+</span>nums[right]<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#a5d6ff">0</span>){
+</span></span><span style="display:flex;"><span>                    right<span style="color:#ff7b72;font-weight:bold">--</span>;
+</span></span><span style="display:flex;"><span>                }<span style="color:#ff7b72">else</span> <span style="color:#d2a8ff;font-weight:bold">if</span>(nums[i]<span style="color:#ff7b72;font-weight:bold">+</span>nums[left]<span style="color:#ff7b72;font-weight:bold">+</span>nums[right] <span style="color:#ff7b72;font-weight:bold">&lt;</span> <span style="color:#a5d6ff">0</span>){ <span style="color:#8b949e;font-style:italic">//和小于0，则left++
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                    left<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>                }<span style="color:#ff7b72">else</span>{
+</span></span><span style="display:flex;"><span>                    result.push_back(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span>{nums[i],nums[left],nums[right]});
+</span></span><span style="display:flex;"><span>                    <span style="color:#8b949e;font-style:italic">//去重逻辑应在找到一个三元组之后,因为排过序了
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                    <span style="color:#8b949e;font-style:italic">//去重
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                    <span style="color:#ff7b72">while</span>(left <span style="color:#ff7b72;font-weight:bold">&lt;</span> right <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[left] <span style="color:#ff7b72;font-weight:bold">==</span> nums[left<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">1</span>]) left<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff7b72">while</span>(left <span style="color:#ff7b72;font-weight:bold">&lt;</span> right <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[right]<span style="color:#ff7b72;font-weight:bold">==</span> nums[right<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>]) right<span style="color:#ff7b72;font-weight:bold">--</span>;
+</span></span><span style="display:flex;"><span>                    <span style="color:#8b949e;font-style:italic">//更新
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                    left<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>                    right<span style="color:#ff7b72;font-weight:bold">--</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h5 id="java-2">
+  java
+  <a class="heading-link" href="#java-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span><span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span><span style="color:#ff7b72">public</span><span style="color:#6e7681"> </span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span><span style="color:#6e7681"> </span><span style="color:#d2a8ff;font-weight:bold">threeSum</span>(<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">[]</span><span style="color:#6e7681"> </span>nums)<span style="color:#6e7681"> </span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>List<span style="color:#ff7b72;font-weight:bold">&lt;</span>Integer<span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span><span style="color:#6e7681"> </span>result<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">new</span><span style="color:#6e7681"> </span>ArrayList<span style="color:#ff7b72;font-weight:bold">&lt;&gt;</span>();<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>Arrays.sort(nums);<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>i<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>0<span style="color:#6e7681"> </span>;<span style="color:#6e7681"> </span>i<span style="color:#ff7b72;font-weight:bold">&lt;</span>nums.length;i<span style="color:#ff7b72;font-weight:bold">++</span>){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#8b949e;font-style:italic">//如果大于0则不可能等于0</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">if</span>(nums<span style="color:#ff7b72;font-weight:bold">[</span>i<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>0){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>result;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#8b949e;font-style:italic">//去重</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">if</span>(i<span style="color:#ff7b72;font-weight:bold">&gt;</span>0<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span><span style="color:#6e7681"> </span>nums<span style="color:#ff7b72;font-weight:bold">[</span>i<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#6e7681"> </span>nums<span style="color:#ff7b72;font-weight:bold">[</span>i<span style="color:#ff7b72;font-weight:bold">-</span>1<span style="color:#ff7b72;font-weight:bold">]</span>){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#ff7b72">continue</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>left<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>i<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#6e7681"> </span>1;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">int</span><span style="color:#6e7681"> </span>right<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#6e7681"> </span>nums.length<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#6e7681"> </span>1;<span style="color:#6e7681">            
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span><span style="color:#ff7b72">while</span>(left<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#6e7681"> </span>right){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span><span style="color:#ff7b72">if</span>(nums<span style="color:#ff7b72;font-weight:bold">[</span>i<span style="color:#ff7b72;font-weight:bold">]+</span>nums<span style="color:#ff7b72;font-weight:bold">[</span>left<span style="color:#ff7b72;font-weight:bold">]+</span>nums<span style="color:#ff7b72;font-weight:bold">[</span>right<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#6e7681"> </span>0){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#8b949e;font-style:italic">//大于0则，左移right</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>right<span style="color:#ff7b72;font-weight:bold">--</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>}<span style="color:#ff7b72">else</span><span style="color:#6e7681"> </span><span style="color:#ff7b72">if</span>(nums<span style="color:#ff7b72;font-weight:bold">[</span>i<span style="color:#ff7b72;font-weight:bold">]+</span>nums<span style="color:#ff7b72;font-weight:bold">[</span>left<span style="color:#ff7b72;font-weight:bold">]+</span>nums<span style="color:#ff7b72;font-weight:bold">[</span>right<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#6e7681"> </span>0){<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#8b949e;font-style:italic">//小于0则，右移left</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>left<span style="color:#ff7b72;font-weight:bold">++</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>}<span style="color:#ff7b72">else</span>{<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#8b949e;font-style:italic">//相等，则添加List，并进行去重</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>result.add(Arrays.asList(nums<span style="color:#ff7b72;font-weight:bold">[</span>i<span style="color:#ff7b72;font-weight:bold">]</span>,<span style="color:#6e7681"> </span>nums<span style="color:#ff7b72;font-weight:bold">[</span>left<span style="color:#ff7b72;font-weight:bold">]</span>,<span style="color:#6e7681"> </span>nums<span style="color:#ff7b72;font-weight:bold">[</span>right<span style="color:#ff7b72;font-weight:bold">]</span>));<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#ff7b72">while</span>(left<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#6e7681"> </span>right<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span><span style="color:#6e7681"> </span>nums<span style="color:#ff7b72;font-weight:bold">[</span>right<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#6e7681"> </span>nums<span style="color:#ff7b72;font-weight:bold">[</span>right<span style="color:#ff7b72;font-weight:bold">-</span>1<span style="color:#ff7b72;font-weight:bold">]</span>)<span style="color:#6e7681"> </span>right<span style="color:#ff7b72;font-weight:bold">--</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#ff7b72">while</span>(left<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#6e7681"> </span>right<span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span><span style="color:#6e7681"> </span>nums<span style="color:#ff7b72;font-weight:bold">[</span>left<span style="color:#ff7b72;font-weight:bold">]</span><span style="color:#6e7681"> </span><span style="color:#ff7b72;font-weight:bold">==</span><span style="color:#6e7681"> </span>nums<span style="color:#ff7b72;font-weight:bold">[</span>left<span style="color:#ff7b72;font-weight:bold">+</span>1<span style="color:#ff7b72;font-weight:bold">]</span>)<span style="color:#6e7681"> </span>left<span style="color:#ff7b72;font-weight:bold">++</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span><span style="color:#8b949e;font-style:italic">//更新left和right</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>left<span style="color:#ff7b72;font-weight:bold">++</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                    </span>right<span style="color:#ff7b72;font-weight:bold">--</span>;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">                </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">            </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">        </span><span style="color:#ff7b72">return</span><span style="color:#6e7681"> </span>result;<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">    </span>}<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span>}<span style="color:#6e7681">
+</span></span></span></code></pre></div><h5 id="go-2">
+  go
+  <a class="heading-link" href="#go-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff7b72">func</span> <span style="color:#d2a8ff;font-weight:bold">threeSum</span>(nums []<span style="color:#ff7b72">int</span>) [][]<span style="color:#ff7b72">int</span> {
+</span></span><span style="display:flex;"><span>    sort.<span style="color:#d2a8ff;font-weight:bold">Ints</span>(nums)
+</span></span><span style="display:flex;"><span>    res <span style="color:#ff7b72;font-weight:bold">:=</span> [][]<span style="color:#ff7b72">int</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> i<span style="color:#ff7b72;font-weight:bold">:=</span><span style="color:#a5d6ff">0</span>; i&lt;len(nums)<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">2</span>;i<span style="color:#ff7b72;font-weight:bold">++</span> {
+</span></span><span style="display:flex;"><span>        n1 <span style="color:#ff7b72;font-weight:bold">:=</span> nums[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> n1 &gt; <span style="color:#a5d6ff">0</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">break</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> i &gt; <span style="color:#a5d6ff">0</span> <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> n1 <span style="color:#ff7b72;font-weight:bold">==</span> nums[i<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>] {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">continue</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        l,r <span style="color:#ff7b72;font-weight:bold">:=</span> i<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">1</span>,len(nums)<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> l &lt; r {
+</span></span><span style="display:flex;"><span>            n2,n3 <span style="color:#ff7b72;font-weight:bold">:=</span> nums[l],nums[r]
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> n1<span style="color:#ff7b72;font-weight:bold">+</span>n2<span style="color:#ff7b72;font-weight:bold">+</span>n3 <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">0</span> {
+</span></span><span style="display:flex;"><span>                res = append(res,[]<span style="color:#ff7b72">int</span>{n1,n2,n3})
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">for</span> l&lt;r <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[l] <span style="color:#ff7b72;font-weight:bold">==</span> n2 {
+</span></span><span style="display:flex;"><span>                    l<span style="color:#ff7b72;font-weight:bold">++</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">for</span> l&lt;r <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[r] <span style="color:#ff7b72;font-weight:bold">==</span> n3 {
+</span></span><span style="display:flex;"><span>                    r<span style="color:#ff7b72;font-weight:bold">--</span>
+</span></span><span style="display:flex;"><span>                }          
+</span></span><span style="display:flex;"><span>            }<span style="color:#ff7b72">else</span> <span style="color:#ff7b72">if</span> n1<span style="color:#ff7b72;font-weight:bold">+</span>n2<span style="color:#ff7b72;font-weight:bold">+</span>n3 &lt; <span style="color:#a5d6ff">0</span> {
+</span></span><span style="display:flex;"><span>                l<span style="color:#ff7b72;font-weight:bold">++</span>
+</span></span><span style="display:flex;"><span>            }<span style="color:#ff7b72">else</span> {
+</span></span><span style="display:flex;"><span>                r<span style="color:#ff7b72;font-weight:bold">--</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> res
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="18四数之和">
+  18.四数之和
+  <a class="heading-link" href="#18%e5%9b%9b%e6%95%b0%e4%b9%8b%e5%92%8c">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>19:46</p>
+<h4 id="思路-3">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>先进行排序然后，
+左侧两个指针进行区间的确定，右侧，left和right进行相向遍历，进行判断
+去重操作与上题相同</p>
+<h4 id="复杂度-3">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>时间复杂度: O(n^3)</li>
+<li>空间复杂度: O(1)</li>
+</ul>
+<h4 id="注意-2">
+  注意⚠️
+  <a class="heading-link" href="#%e6%b3%a8%e6%84%8f-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>减枝操作，与上一道题有比较大的不同
+需要保证sum结果不溢出使用long</p>
+<h4 id="题解-3">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c-3">
+  C++
+  <a class="heading-link" href="#c-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span> fourSum(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums, <span style="color:#ff7b72">int</span> target) {
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span> result;
+</span></span><span style="display:flex;"><span>        sort(nums.begin(),nums.end());
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(nums.size() <span style="color:#ff7b72;font-weight:bold">&lt;</span> <span style="color:#a5d6ff">4</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span>;i <span style="color:#ff7b72;font-weight:bold">&lt;</span> nums.size()<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">2</span>;i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> (nums[i] <span style="color:#ff7b72;font-weight:bold">&gt;</span> target <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[i] <span style="color:#ff7b72;font-weight:bold">&gt;=</span> <span style="color:#a5d6ff">0</span>) {
+</span></span><span style="display:flex;"><span>            	<span style="color:#ff7b72">break</span>; <span style="color:#8b949e;font-style:italic">// 这里使用break，统一通过最后的return返回
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(i<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#a5d6ff">0</span> <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[i] <span style="color:#ff7b72;font-weight:bold">==</span> nums[i<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>]){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">continue</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> j <span style="color:#ff7b72;font-weight:bold">=</span> i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span> ; j <span style="color:#ff7b72;font-weight:bold">&lt;</span> nums.size()<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span> ; j<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">if</span>(nums[j] <span style="color:#ff7b72;font-weight:bold">+</span> nums[i] <span style="color:#ff7b72;font-weight:bold">&gt;</span> target <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[j] <span style="color:#ff7b72;font-weight:bold">+</span> nums[i] <span style="color:#ff7b72;font-weight:bold">&gt;=</span> <span style="color:#a5d6ff">0</span>){
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff7b72">break</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">if</span>(j <span style="color:#ff7b72;font-weight:bold">&gt;</span> i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span> <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[j] <span style="color:#ff7b72;font-weight:bold">==</span> nums[j<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>]){
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff7b72">continue</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//进行右侧的相向遍历
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#ff7b72">int</span> left <span style="color:#ff7b72;font-weight:bold">=</span> j <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">int</span> right <span style="color:#ff7b72;font-weight:bold">=</span> nums.size()<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">while</span>(left <span style="color:#ff7b72;font-weight:bold">&lt;</span> right){
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff7b72">if</span>((<span style="color:#ff7b72">long</span>) nums[i]<span style="color:#ff7b72;font-weight:bold">+</span>nums[j]<span style="color:#ff7b72;font-weight:bold">+</span>nums[left]<span style="color:#ff7b72;font-weight:bold">+</span>nums[right] <span style="color:#ff7b72;font-weight:bold">&gt;</span> target){
+</span></span><span style="display:flex;"><span>                        right<span style="color:#ff7b72;font-weight:bold">--</span>;
+</span></span><span style="display:flex;"><span>                    }<span style="color:#ff7b72">else</span> <span style="color:#d2a8ff;font-weight:bold">if</span>((<span style="color:#ff7b72">long</span>) nums[i]<span style="color:#ff7b72;font-weight:bold">+</span>nums[j]<span style="color:#ff7b72;font-weight:bold">+</span>nums[left]<span style="color:#ff7b72;font-weight:bold">+</span>nums[right] <span style="color:#ff7b72;font-weight:bold">&lt;</span> target){
+</span></span><span style="display:flex;"><span>                        left<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>                    }<span style="color:#ff7b72">else</span>{
+</span></span><span style="display:flex;"><span>                        result.push_back(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span>{nums[i],nums[j],nums[left],nums[right]});
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff7b72">while</span>(left<span style="color:#ff7b72;font-weight:bold">&lt;</span>right <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[left] <span style="color:#ff7b72;font-weight:bold">==</span> nums[left<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">1</span>]) left<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff7b72">while</span>(left<span style="color:#ff7b72;font-weight:bold">&lt;</span>right <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[right] <span style="color:#ff7b72;font-weight:bold">==</span> nums[right<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>]) right<span style="color:#ff7b72;font-weight:bold">--</span>;
+</span></span><span style="display:flex;"><span>                        <span style="color:#8b949e;font-style:italic">//更新
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                        left<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>                        right<span style="color:#ff7b72;font-weight:bold">--</span>;
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     CCR 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

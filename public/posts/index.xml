@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-05-17刷题</title>
+      <link>http://localhost:1313/posts/leetcode9/</link>
+      <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode9/</guid>
+      <description>2024-05-17 Link to heading 使用栈模拟队列 Link to heading 16:49&#xA;思路 Link to heading 使用两个栈，stkIN，stkOut 当入队列的时候，先入In栈 当出队列的时候，将in栈的所有元素都移到out栈中，然后，out栈pop&#xA;题解 Link to heading C++ Link to heading class MyQueue { public: stack&amp;lt;int&amp;gt; stIn; stack&amp;lt;int&amp;gt; stOut; MyQueue() { } void push(int x) { stIn.push(x); } int pop() { if(stOut.empty()){ while(!stIn.empty()){ stOut.push(stIn.top()); stIn.pop(); } } int result = stOut.top(); stOut.pop(); return result; } int peek() { int res = this-&amp;gt;pop(); stOut.push(res); return res; } bool empty() { return stIn.</description>
+    </item>
+    <item>
+      <title>2024-05-15刷题</title>
+      <link>http://localhost:1313/posts/leetcode6/</link>
+      <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode6/</guid>
+      <description>2024-05-15刷题 Link to heading 454. 四数相加 II Link to heading 09:02 09:51&#xA;思路 Link to heading 将前两数的和放到map中，并且统计数量 将后两个数的和的相反数判断是否存在hashmap里，如果存在，则将，所有等于的值的数量添加到返回值中&#xA;复杂度 Link to heading 时间复杂度：$O(n^2)$ 空间复杂度：$O(n^2)$&#xA;注意⚠️ Link to heading 使用auto进行遍历map，不要太像C的写法&#xA;题解 Link to heading C++ Link to heading class Solution { public: int fourSumCount(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2, vector&amp;lt;int&amp;gt;&amp;amp; nums3, vector&amp;lt;int&amp;gt;&amp;amp; nums4) { int n = nums1.size(); unordered_map&amp;lt;int,int&amp;gt; val; int num = 0; //遍历num1 ， num2 for(auto i : nums1){ for(auto j : nums2){ val[i+j]++; } } //遍历num3，num4 for(auto i : nums3){ for(auto j : nums4){ num += val[-i-j]; } } return num; } }; java Link to heading class Solution { public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) { Map&amp;lt;Integer,Integer&amp;gt; val = new HashMap&amp;lt;Integer,Integer&amp;gt;(); for(int u : nums1){ for(int v : nums2){ val.</description>
+    </item>
+    <item>
+      <title>2024-05-15刷题2</title>
+      <link>http://localhost:1313/posts/leetcode7/</link>
+      <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode7/</guid>
+      <description>2024-05-15刷题2 Link to heading 344.反转字符差 Link to heading 20:49&#xA;思路 Link to heading 左右指针向中间遍历，进行交换&#xA;复杂度 Link to heading O(n)&#xA;题解 Link to heading C++ Link to heading class Solution { public: void reverseString(vector&amp;lt;char&amp;gt;&amp;amp; s) { auto left = s.begin(); auto right = s.end() - 1; // right should point to the last element while(left &amp;lt; right) { // Swap the characters pointed by left and right char temp = *left; *left = *right; *right = temp; // Move the iterators ++left; --right; } } }; java Link to heading class Solution { public void reverseString(char[] s) { int l = 0; int r = s.</description>
+    </item>
+    <item>
+      <title>2024-05-14刷题1</title>
+      <link>http://localhost:1313/posts/leetcode4/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode4/</guid>
+      <description>2024-05-14 Link to heading 24.两两交换链表中的节点 Link to heading 17:10 17:32 18:08&#xA;思路 Link to heading 因为交换两个链表节点需要已知需交换两节点前面的节点，所以，为了保证运算的统一性，循环更新，前面的头节点，循环条件为，头节点之后两个需交换的节点都不为空。 之后，将更新节点指针指向头节点的下一个，进行更新操作。&#xA;while(left-&amp;gt;next!=nullptr &amp;amp;&amp;amp; left-&amp;gt;next-&amp;gt;next!=nullptr) { right = left-&amp;gt;next; left-&amp;gt;next = right-&amp;gt;next; right-&amp;gt;next = right-&amp;gt;next-&amp;gt;next; left-&amp;gt;next-&amp;gt;next = right; left = left-&amp;gt;next-&amp;gt;next; } 复杂度 Link to heading 时间复杂度：O(n)，其中 n 是链表的节点数量。需要对每个节点进行更新指针的操作。 空间复杂度：O(1)。 注意⚠️ Link to heading 如果想要交换两个节点需要知道这两个节点的前一个节点&#xA;题解 Link to heading C++ Link to heading /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode() : val(0), next(nullptr) {} * ListNode(int x) : val(x), next(nullptr) {} * ListNode(int x, ListNode *next) : val(x), next(next) {} * }; */ class Solution { public: ListNode* swapPairs(ListNode* head) { ListNode *dummyhead = new ListNode(0,head); ListNode *left = dummyhead; ListNode *right = dummyhead; while(left-&amp;gt;next!</description>
+    </item>
+    <item>
+      <title>2024-05-14刷题2</title>
+      <link>http://localhost:1313/posts/leetcode5/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode5/</guid>
+      <description>2024-05-14刷题 Link to heading 242.有效的字母异位词 Link to heading 20:22 20:47&#xA;思路 Link to heading 很简单，遍历两个字符串，并将对应char的内容放入到unordered_map中，有重复的就将次数加一 之后再进行一次遍历判断两个数组中对应字符的个数是否相同&#xA;题解 Link to heading C++ Link to heading class Solution { public: bool isAnagram(string s, string t) { if(s.length() != t.length()){ return false; } unordered_map&amp;lt;char,int&amp;gt; a; unordered_map&amp;lt;char,int&amp;gt; b; for(int i = 0 ;i &amp;lt; s.length(); i++){ a[s[i]]++; b[t[i]]++; } for(int i = 0 ;i &amp;lt; s.length() ; i++){ if(a[s[i]] != b[s[i]]) return false; } return true; } }; java Link to heading class Solution { public boolean isAnagram(String s, String t) { int[] record = new int[26]; for (char c : s.</description>
+    </item>
+    <item>
+      <title>2024-05-10刷题</title>
+      <link>http://localhost:1313/posts/%E5%88%B7%E9%A2%98/</link>
+      <pubDate>Fri, 10 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/%E5%88%B7%E9%A2%98/</guid>
+      <description>2024-05-10刷题 Link to heading 704.二分查找 Link to heading 思路 Link to heading 使用左闭右闭 如果中间的元素小于目标元素，则说明，需要找的元素在右边的区间，并可将mid位置的元素排除 然后将right指针移动到当前mid+1所在的位置。 如果相等则返回&#xA;时间复杂度 Link to heading 由于每次查找都会将查找范围缩小一半，因此二分查找的时间复杂度是 $O(\log n)$，其中 n 是数组的长度。&#xA;注意⚠️ Link to heading nums.size() 返回是vector的长度值，而不是最后一个元素的下标。 应该为l&amp;lt;=r 可以防止只有一个元素的时，判断不进行 可以防止目标元素在开始与结尾的时候，判断不进行 计算mid 可以使用 int mid = (r - l)/2 + l 可以防止长度太大溢出 更新l和r的时候可以排除mid位置的元素 题解 Link to heading C++ Link to heading class Solution { public: int search(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { int l = 0; int r = nums.</description>
+    </item>
+    <item>
+      <title>2024-05-10刷题2</title>
+      <link>http://localhost:1313/posts/leetcode2/</link>
+      <pubDate>Fri, 10 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode2/</guid>
+      <description>2024-05-10 刷题 Link to heading 977.有序数组的平方 Link to heading 1h20min&#xA;思路 Link to heading 我原本想在一个数组上进行处理，但发现不行。 所以，新建一个数组，然后在原数组上从左右开始向中间遍历，如果大的就添加到新的数组中，并更新新数组的下标&#xA;复杂度 Link to heading 时间复杂度：O(n) 。n 的长度为数组的长度。 空间复杂度：O(1)。除了存储答案的数组以外，我们只需要维护常量空间。&#xA;题解 Link to heading C++ Link to heading class Solution { public: vector&amp;lt;int&amp;gt; sortedSquares(vector&amp;lt;int&amp;gt;&amp;amp; nums) { vector &amp;lt;int&amp;gt; sorted(nums.size(),0); int l = 0; int r = nums.size() - 1; int k = r; while(l&amp;lt;=r){ if(nums[r]*nums[r] &amp;gt; nums[l]*nums[l]){ sorted[k--] = nums[r] * nums[r]; r--; }else{ sorted[k--] = nums[l] * nums[l]; l++; } } return sorted; } }; java Link to heading class Solution { public int[] sortedSquares(int[] nums) { int n = nums.</description>
+    </item>
+    <item>
+      <title>2024-05-10刷题3</title>
+      <link>http://localhost:1313/posts/leetcode3/</link>
+      <pubDate>Fri, 10 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode3/</guid>
+      <description>2024-05-10 Link to heading 203.移除链表元素 Link to heading 思路 Link to heading 使用一个虚拟头节点，来简化操作的逻辑，将dummyhead指向头节点，然后，使用temp进行遍历，当temp的next的val为val时候，就将next指向next-&amp;gt;next 如果不等，则向后移动temp指针&#xA;复杂度 Link to heading 时间复杂度：O(n)，其中 n 是链表的长度。需要遍历链表一次。 空间复杂度：O(1)。 注意⚠️ Link to heading 也可能忘记了C++的创建类指针的操作&#xA;ListNode *dummyhead = new ListNode(0,head); 注意使用虚拟头节点，非常常见&#xA;ListNode *dummyhead = new ListNode(0,head); ListNode *temp = dummyhead; 题解 Link to heading C++ Link to heading class Solution { public: ListNode* removeElements(ListNode* head, int val) { ListNode *dummyhead = new ListNode(0,head); ListNode *temp = dummyhead; while(temp-&amp;gt;next !</description>
+    </item>
+    <item>
+      <title>2024-05-16 刷题</title>
+      <link>http://localhost:1313/posts/leetcode8/</link>
+      <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode8/</guid>
+      <description>2024-05-16 Link to heading 28.实现strStr() Link to heading 14:40&#xA;思路 Link to heading 需要计算出来next数组&#xA;从前到后遍历匹配字符串 如果前后缀不同，则回退，没必要回退到开头，可以会退到上一个next对应的位置 如果匹配则j++ 然后更具next数组进行匹配 当不匹配的时候将j移动到next[j]的位置直到匹配成功 匹配成功则向后移动j j等于匹配串长度的时候则说明匹配成功 复杂度 Link to heading 时间复杂度: O(n + m) 空间复杂度: O(m), 只需要保存字符串needle的前缀表 题解 Link to heading C++ Link to heading class Solution { public: //获得next表下一个 void getNext(int* next, const string&amp;amp; s){ //初始化 int j = -1; next[0] = j; //从前往后遍历s字符串 for(int i = 1 ; i &amp;lt; s.size() ; i++){ //如果前后缀不同，则回退，没必要回退，到开头可以会退到上一个next对应的位置 while(j &amp;gt;= 0 &amp;amp;&amp;amp; s[i] !</description>
+    </item>
+  </channel>
+</rss>

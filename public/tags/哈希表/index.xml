@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>哈希表 on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/</link>
+    <description>Recent content in 哈希表 on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-05-15刷题</title>
+      <link>http://localhost:1313/posts/leetcode6/</link>
+      <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode6/</guid>
+      <description>2024-05-15刷题 Link to heading 454. 四数相加 II Link to heading 09:02 09:51&#xA;思路 Link to heading 将前两数的和放到map中，并且统计数量 将后两个数的和的相反数判断是否存在hashmap里，如果存在，则将，所有等于的值的数量添加到返回值中&#xA;复杂度 Link to heading 时间复杂度：$O(n^2)$ 空间复杂度：$O(n^2)$&#xA;注意⚠️ Link to heading 使用auto进行遍历map，不要太像C的写法&#xA;题解 Link to heading C++ Link to heading class Solution { public: int fourSumCount(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2, vector&amp;lt;int&amp;gt;&amp;amp; nums3, vector&amp;lt;int&amp;gt;&amp;amp; nums4) { int n = nums1.size(); unordered_map&amp;lt;int,int&amp;gt; val; int num = 0; //遍历num1 ， num2 for(auto i : nums1){ for(auto j : nums2){ val[i+j]++; } } //遍历num3，num4 for(auto i : nums3){ for(auto j : nums4){ num += val[-i-j]; } } return num; } }; java Link to heading class Solution { public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) { Map&amp;lt;Integer,Integer&amp;gt; val = new HashMap&amp;lt;Integer,Integer&amp;gt;(); for(int u : nums1){ for(int v : nums2){ val.</description>
+    </item>
+    <item>
+      <title>2024-05-14刷题2</title>
+      <link>http://localhost:1313/posts/leetcode5/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode5/</guid>
+      <description>2024-05-14刷题 Link to heading 242.有效的字母异位词 Link to heading 20:22 20:47&#xA;思路 Link to heading 很简单，遍历两个字符串，并将对应char的内容放入到unordered_map中，有重复的就将次数加一 之后再进行一次遍历判断两个数组中对应字符的个数是否相同&#xA;题解 Link to heading C++ Link to heading class Solution { public: bool isAnagram(string s, string t) { if(s.length() != t.length()){ return false; } unordered_map&amp;lt;char,int&amp;gt; a; unordered_map&amp;lt;char,int&amp;gt; b; for(int i = 0 ;i &amp;lt; s.length(); i++){ a[s[i]]++; b[t[i]]++; } for(int i = 0 ;i &amp;lt; s.length() ; i++){ if(a[s[i]] != b[s[i]]) return false; } return true; } }; java Link to heading class Solution { public boolean isAnagram(String s, String t) { int[] record = new int[26]; for (char c : s.</description>
+    </item>
+  </channel>
+</rss>

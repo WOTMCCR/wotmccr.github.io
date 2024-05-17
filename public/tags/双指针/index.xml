@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>双指针 on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/tags/%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+    <description>Recent content in 双指针 on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%8F%8C%E6%8C%87%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-05-15刷题</title>
+      <link>http://localhost:1313/posts/leetcode6/</link>
+      <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode6/</guid>
+      <description>2024-05-15刷题 Link to heading 454. 四数相加 II Link to heading 09:02 09:51&#xA;思路 Link to heading 将前两数的和放到map中，并且统计数量 将后两个数的和的相反数判断是否存在hashmap里，如果存在，则将，所有等于的值的数量添加到返回值中&#xA;复杂度 Link to heading 时间复杂度：$O(n^2)$ 空间复杂度：$O(n^2)$&#xA;注意⚠️ Link to heading 使用auto进行遍历map，不要太像C的写法&#xA;题解 Link to heading C++ Link to heading class Solution { public: int fourSumCount(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2, vector&amp;lt;int&amp;gt;&amp;amp; nums3, vector&amp;lt;int&amp;gt;&amp;amp; nums4) { int n = nums1.size(); unordered_map&amp;lt;int,int&amp;gt; val; int num = 0; //遍历num1 ， num2 for(auto i : nums1){ for(auto j : nums2){ val[i+j]++; } } //遍历num3，num4 for(auto i : nums3){ for(auto j : nums4){ num += val[-i-j]; } } return num; } }; java Link to heading class Solution { public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) { Map&amp;lt;Integer,Integer&amp;gt; val = new HashMap&amp;lt;Integer,Integer&amp;gt;(); for(int u : nums1){ for(int v : nums2){ val.</description>
+    </item>
+  </channel>
+</rss>

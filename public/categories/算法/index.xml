@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/categories/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-05-10刷题2</title>
+      <link>http://localhost:1313/posts/leetcode2/</link>
+      <pubDate>Fri, 10 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode2/</guid>
+      <description>2024-05-10 刷题 Link to heading 977.有序数组的平方 Link to heading 1h20min&#xA;思路 Link to heading 我原本想在一个数组上进行处理，但发现不行。 所以，新建一个数组，然后在原数组上从左右开始向中间遍历，如果大的就添加到新的数组中，并更新新数组的下标&#xA;复杂度 Link to heading 时间复杂度：O(n) 。n 的长度为数组的长度。 空间复杂度：O(1)。除了存储答案的数组以外，我们只需要维护常量空间。&#xA;题解 Link to heading C++ Link to heading class Solution { public: vector&amp;lt;int&amp;gt; sortedSquares(vector&amp;lt;int&amp;gt;&amp;amp; nums) { vector &amp;lt;int&amp;gt; sorted(nums.size(),0); int l = 0; int r = nums.size() - 1; int k = r; while(l&amp;lt;=r){ if(nums[r]*nums[r] &amp;gt; nums[l]*nums[l]){ sorted[k--] = nums[r] * nums[r]; r--; }else{ sorted[k--] = nums[l] * nums[l]; l++; } } return sorted; } }; java Link to heading class Solution { public int[] sortedSquares(int[] nums) { int n = nums.</description>
+    </item>
+  </channel>
+</rss>

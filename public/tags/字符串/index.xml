@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>字符串 on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+    <description>Recent content in 字符串 on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-05-15刷题2</title>
+      <link>http://localhost:1313/posts/leetcode7/</link>
+      <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode7/</guid>
+      <description>2024-05-15刷题2 Link to heading 344.反转字符差 Link to heading 20:49&#xA;思路 Link to heading 左右指针向中间遍历，进行交换&#xA;复杂度 Link to heading O(n)&#xA;题解 Link to heading C++ Link to heading class Solution { public: void reverseString(vector&amp;lt;char&amp;gt;&amp;amp; s) { auto left = s.begin(); auto right = s.end() - 1; // right should point to the last element while(left &amp;lt; right) { // Swap the characters pointed by left and right char temp = *left; *left = *right; *right = temp; // Move the iterators ++left; --right; } } }; java Link to heading class Solution { public void reverseString(char[] s) { int l = 0; int r = s.</description>
+    </item>
+    <item>
+      <title>2024-05-16 刷题</title>
+      <link>http://localhost:1313/posts/leetcode8/</link>
+      <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode8/</guid>
+      <description>2024-05-16 Link to heading 28.实现strStr() Link to heading 14:40&#xA;思路 Link to heading 需要计算出来next数组&#xA;从前到后遍历匹配字符串 如果前后缀不同，则回退，没必要回退到开头，可以会退到上一个next对应的位置 如果匹配则j++ 然后更具next数组进行匹配 当不匹配的时候将j移动到next[j]的位置直到匹配成功 匹配成功则向后移动j j等于匹配串长度的时候则说明匹配成功 复杂度 Link to heading 时间复杂度: O(n + m) 空间复杂度: O(m), 只需要保存字符串needle的前缀表 题解 Link to heading C++ Link to heading class Solution { public: //获得next表下一个 void getNext(int* next, const string&amp;amp; s){ //初始化 int j = -1; next[0] = j; //从前往后遍历s字符串 for(int i = 1 ; i &amp;lt; s.size() ; i++){ //如果前后缀不同，则回退，没必要回退，到开头可以会退到上一个next对应的位置 while(j &amp;gt;= 0 &amp;amp;&amp;amp; s[i] !</description>
+    </item>
+  </channel>
+</rss>
