@@ -3,6 +3,7 @@ title = "WOTMCCR'S BLOG"
 theme = "hugo-coder"
 languagecode = "en"
 defaultcontentlanguage = "en"
+enableRobotsTXT = true
 
 paginate = 20
 
