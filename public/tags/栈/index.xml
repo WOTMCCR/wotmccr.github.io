@@ -6,8 +6,15 @@
     <description>Recent content in 栈 on WOTMCCR&#39;S BLOG</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/%E6%A0%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-05-19刷题</title>
+      <link>http://localhost:1313/posts/leetcode10/</link>
+      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode10/</guid>
+      <description>2024-05-19刷题 Link to heading 20. 有效的括号 Link to heading 19:01&#xA;思路 Link to heading 因为这道题， s 仅由括号 &#39;()[]{}&#39; 组成而没有交错的情况，所以只需要判断栈顶的元素与当前元素是否匹配即可&#xA;题解 Link to heading C++ Link to heading class Solution { public: bool isValid(string s) { //如果数组大小为奇数则一定不满足 if(s.length() % 2 != 0) return false; stack&amp;lt;int&amp;gt; in; //将s入栈，可以直接，将左括号输入成对应的右括号，然后当右括号到达的时候进行出栈判断进行匹配即可 for(int i = 0 ; i &amp;lt; s.length() ; i++){ if(s[i] == &amp;#39;(&amp;#39;) in.push(&amp;#39;)&amp;#39;); else if(s[i] == &amp;#39;{&amp;#39;) in.push(&amp;#39;}&amp;#39;); else if(s[i] == &amp;#39;[&amp;#39;) in.</description>
+    </item>
     <item>
       <title>2024-05-17刷题</title>
       <link>http://localhost:1313/posts/leetcode9/</link>

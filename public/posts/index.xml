@@ -6,8 +6,120 @@
     <description>Recent content in Posts on WOTMCCR&#39;S BLOG</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-06-07刷题</title>
+      <link>http://localhost:1313/posts/leetcode24/</link>
+      <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode24/</guid>
+      <description>2024-06-07 Link to heading 93. 复原 IP 地址 Link to heading 20:42&#xA;思路 Link to heading 也属于分割问题，只需要判断分割的数属于0～255即可&#xA;for (int i = startIndex; i &amp;lt; s.size(); i++) { if (isValid(s, startIndex, i)) { // 判断 [startIndex,i] 这个区间的子串是否合法 s.insert(s.begin() + i + 1 , &amp;#39;.&amp;#39;); // 在i的后面插入一个逗点 pointNum++; backtracking(s, i + 2, pointNum); // 插入逗点之后下一个子串的起始位置为i+2 pointNum--; // 回溯 s.erase(s.begin() + i + 1); // 回溯删掉逗点 } else break; // 不合法，直接结束本层循环 } 复杂度 Link to heading 时间复杂度: O(3^4)，IP地址最多包含4个数字，每个数字最多有3种可能的分割方式，则搜索树的最大深度为4，每个节点最多有3个子节点。 空间复杂度: O(n) 题解 Link to heading C++ Link to heading class Solution { private: vector&amp;lt;string&amp;gt; result;// 记录结果 // startIndex: 搜索的起始位置，pointNum:添加逗点的数量 void backtracking(string&amp;amp; s, int startIndex, int pointNum) { if (pointNum == 3) { // 逗点数量为3时，分隔结束 // 判断第四段子字符串是否合法，如果合法就放进result中 if (isValid(s, startIndex, s.</description>
+    </item>
+    <item>
+      <title>2024-06-07刷题2</title>
+      <link>http://localhost:1313/posts/leetcode25/</link>
+      <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode25/</guid>
+      <description>2024-06-07刷题2 Link to heading 491. 非递减子序列 Link to heading 19:16&#xA;思路 Link to heading 同一父节点下的同层上使用过的元素就不能再使用了&#xA;复杂度 Link to heading 注意⚠️ Link to heading unordered_set&amp;lt;int&amp;gt; uset; 是记录本层元素是否重复使用，新的一层uset都会重新定义（清空），所以要知道uset只负责本层！&#xA;题解 Link to heading C++ Link to heading class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; vector&amp;lt;int&amp;gt; path; void Backtracking(vector&amp;lt;int&amp;gt; &amp;amp;nums , int startIndex){ if(path.size() &amp;gt; 1){ result.push_back(path); } //每一层的去重 unordered_set&amp;lt;int&amp;gt; uset; for(int i = startIndex ; i&amp;lt;nums.size();i++){ if((!path.empty() &amp;amp;&amp;amp; nums[i] &amp;lt; path.back()) ||(uset.find(nums[i]) != uset.</description>
+    </item>
+    <item>
+      <title>2024-06-06刷题</title>
+      <link>http://localhost:1313/posts/leetcode21/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode21/</guid>
+      <description>2024-06-06 Link to heading 77. 组合 Link to heading 15:30&#xA;思路 Link to heading 记录当前遍历到的位置，然后从当前位置的下一个继续进行遍历，遍历之后进行回溯&#xA;复杂度 Link to heading 时间复杂度: O(n * 2^n) 空间复杂度: O(n)&#xA;注意 Link to heading 可以当当前位置的元素 不满足要求的个数的时候就不继续遍历了&#xA;for (int i = startIndex; i &amp;lt;= n - (k - path.size()) + 1; i++) { // 优化的地方 题解 Link to heading C++ Link to heading class Solution { public: //结果 vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; //用于存放路径 vector&amp;lt;int&amp;gt; path; void Backtracking(int cur,int n,int k){ if(path.</description>
+    </item>
+    <item>
+      <title>2024-06-06刷题2</title>
+      <link>http://localhost:1313/posts/leetcode22/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode22/</guid>
+      <description>2024-06-06刷题2 Link to heading 216.组合总和III Link to heading 15:44&#xA;思路 Link to heading 与找到所有数的组合的遍历思路一致 在终止条件的部分进行验证判断数据的和是否满足条件，如果满足条件才将路径添加到结果集合中 并且在处理和回溯的部分，对与sum值进行处理。&#xA;剪枝 Link to heading if (sum &amp;gt; targetSum) { // 剪枝操作 return; } 题解 Link to heading C++ Link to heading class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; vector&amp;lt;int&amp;gt; path; int sum = 0; void backtracing(int cur, int n , int k){ if(path.size() == k){ if(sum == n) { result.push_back(path); } return; } for(int i = cur ; i &amp;lt;= 9 - (k - path.</description>
+    </item>
+    <item>
+      <title>2024-06-06刷题3</title>
+      <link>http://localhost:1313/posts/leetcode23/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode23/</guid>
+      <description>2024-06-06刷题3 Link to heading 39.组合总和 Link to heading 16:35&#xA;思路 Link to heading 主要是可以重复选取，并且不限制数量，这两点是与之前不太一样的部分&#xA;应该不用刻意考虑去重，因为，是一个无重复元素的整数数组&#xA;复杂度 Link to heading 时间复杂度: O(n * 2^n)，注意这只是复杂度的上界，因为剪枝的存在，真实的时间复杂度远小于此 空间复杂度: O(target)&#xA;注意⚠️ Link to heading 我一直再想如何循环，trace元素相同的情况，但其实 直接如下即可&#xA;for(int i = index ; i &amp;lt; candidates.size() ; i++){ result.push_back(candidates[i]); sum+=candidates[i]; Backtracking(candidates,target,i); result.pop_back(candidates[i]); sum-=candidates[i]; } ![[../static/attachments/Screenshot 2024-06-06 at 17.00.08.png]] 相当于在下一层中，再选取下一个元素。&#xA;题解 Link to heading C++ Link to heading class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; results; vector&amp;lt;int&amp;gt;result; int sum; void Backtracking(vector&amp;lt;int&amp;gt;&amp;amp; candidates , int target , int index){ // if(sum &amp;gt; target){ // return; // } if(sum == target){ results.</description>
+    </item>
+    <item>
+      <title>2024-06-04刷题</title>
+      <link>http://localhost:1313/posts/leetcode20/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode20/</guid>
+      <description>2024-06-04 刷题 Link to heading 669.修剪二叉搜索树 Link to heading 19:49&#xA;思路 Link to heading 确定函数参数 有返回值，更方便，可以通过递归函数的返回值来移除节点。&#xA;TreeNode* trimBST(TreeNode* root, int low, int high) 确定终止条件 因为修剪操作不是在终止条件上进行的，所以遇到空节点直接返回&#xA;if (root == nullptr ) return nullptr; 确定单层递归逻辑 处理是否在区间内，进入下一层&#xA;注意⚠️ Link to heading 寻找符合条件的左右子树需要&#xA;//小于low将，右孩子连到父的左边 if(root-&amp;gt;val &amp;lt; low){ //需要找到符合条件的右孩子。 TreeNode *right = trimBST(root-&amp;gt;right,low,high); return right; } //大于high将，左孩子，连到父的右边 if(root-&amp;gt;val &amp;gt; high){ TreeNode *left = trimBST(root-&amp;gt;left,low,high); return left; } 题解 Link to heading C++ Link to heading /** * Definition for a binary tree node.</description>
+    </item>
+    <item>
+      <title>2024-05-29刷题</title>
+      <link>http://localhost:1313/posts/leetcode18/</link>
+      <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode18/</guid>
+      <description>2024-05-28刷题 Link to heading 530.二叉搜索树的最小绝对差 Link to heading 14:01&#xA;思路 Link to heading 因为是使用二叉搜索树，所以使用中序遍历就是从小到大遍历，当前节点与之前节点的值相减，如果，小于最小值则替换。&#xA;所以，递归函数的参数应该有当前节点与上一个节点，可以将最小值放在外面。&#xA;注意⚠️ Link to heading prev 节点的确定 prev必须是最左下角，最小元素。&#xA;题解 Link to heading C++ Link to heading 递归&#xA;class Solution { public: TreeNode *prev = nullptr; int Min = INT_MAX; void traversal(TreeNode* root) { if(root == nullptr) return; traversal(root-&amp;gt;left); if(prev!=nullptr &amp;amp;&amp;amp; abs(root-&amp;gt;val - prev-&amp;gt;val) &amp;lt; Min){ Min = abs(root-&amp;gt;val - prev-&amp;gt;val); } prev = root; traversal(root-&amp;gt;right); return; } int getMinimumDifference(TreeNode * root){ traversal(root); return Min; } }; 迭代：</description>
+    </item>
+    <item>
+      <title>2024-05-29刷题2</title>
+      <link>http://localhost:1313/posts/leetcode19/</link>
+      <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode19/</guid>
+      <description>2024-05-29 刷题2 Link to heading 235.二叉搜索树的最近公共祖先 Link to heading 16:49&#xA;思路 Link to heading 根据二叉搜索树的性质，当节点的值处于p，q的区间中的时候，则属于公共祖先。&#xA;复杂度 Link to heading 注意⚠️ Link to heading 题解 Link to heading C++ Link to heading class Solution { public: TreeNode* traversal(TreeNode *cur , TreeNode *p,TreeNode *q){ if(cur == NULL) return cur; if (cur-&amp;gt;val &amp;gt; p-&amp;gt;val &amp;amp;&amp;amp; cur-&amp;gt;val &amp;gt; q-&amp;gt;val) { // 左 TreeNode* left = traversal(cur-&amp;gt;left, p, q); if (left != NULL) { return left; } } if (cur-&amp;gt;val &amp;lt; p-&amp;gt;val &amp;amp;&amp;amp; cur-&amp;gt;val &amp;lt; q-&amp;gt;val) { // 右 TreeNode* right = traversal(cur-&amp;gt;right, p, q); if (right !</description>
+    </item>
+    <item>
+      <title>2024-05-27刷题</title>
+      <link>http://localhost:1313/posts/leetcode17/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode17/</guid>
+      <description>2024-05-27刷题 Link to heading 654.最大二叉树 Link to heading 11:05&#xA;思路 Link to heading 只需要一个数组，以及开始结束索引。&#xA;终止条件 当，左索引大于右索引的时候终止。 操作逻辑 创建一个根节点，其值为 nums 中的最大值。 递归地在最大值 左边 的 子数组前缀上 构建左子树。 递归地在最大值 右边 的 子数组后缀上 构建右子树。 创建左右子树 root-&amp;gt;left = traversal(nums,start,max_index); root-&amp;gt;right = traversal(nums,max_index+1,end); return root; 注意⚠️ Link to heading int max_index = start; for(int i = start + 1 ; i &amp;lt; end ; i++){ if(nums[i] &amp;gt; nums[max_index]) max_index = i; } 题解 Link to heading C++ Link to heading /** * Definition for a binary tree node.</description>
+    </item>
+    <item>
+      <title>2024-05-25刷题</title>
+      <link>http://localhost:1313/posts/leetcode16/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode16/</guid>
+      <description>2024-05-25刷题 Link to heading 513.找树左下角的值 Link to heading 20:52&#xA;思路 Link to heading 使用层次遍历，将每层最左边的值存放在结果中。&#xA;题解 Link to heading C++ Link to heading /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: int findBottomLeftValue(TreeNode* root) { queue&amp;lt;TreeNode*&amp;gt; que; if(root) que.</description>
+    </item>
+    <item>
+      <title>2024-05-24刷题</title>
+      <link>http://localhost:1313/posts/leetcode15/</link>
+      <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode15/</guid>
+      <description>2024-05-24 Link to heading 110.平衡二叉树 Link to heading 10:36&#xA;思路 Link to heading 平衡二叉树为，该树所有节点的左右子树的深度相差不超过1&#xA;二叉树节点的深度：指从根节点到该节点的最长简单路径边的条数。 二叉树节点的高度：指从该节点到叶子节点的最长简单路径边的条数。 递归法： Link to heading 其实，各种遍历方法中对中节点的访问，并不仅仅只能是取值，也代表着访问顺序。 可以根据这一点，来选取不同的遍历方式处理问题。 比如求平衡二叉树，我需要知道当前节点的左右子树的高度然后进行比较，所以我需要先访问左右再访问当前节点进行高度差的计算。&#xA;这个顺序符合左右中的后序遍历顺序，所以可以使用后序遍历解决这个问题。&#xA;确定递归函数的参数以及返回值，因为需要知道高度所以设定返回值为高度，传递当前节点 int getHeight(TreeNode * node) 确定终止条件，当当前节点为null的时候也就是到达叶子节点的孩子，返回高度为0，终止递归 //终止条件 if(node == nullptr){ return 0; } 单层递归逻辑，调用递归函数求左高度和右高度，如果高度返回值是-1代表已经不是平衡二叉树了，将返回结果一直传递。 //左子树的高度 左 int leftHeight = getHeight(node-&amp;gt;left); //如果返回值有-1要一直传递 if(leftHeight == -1) return -1; //右子树的高度 右 int rightHeight = getHeight(node-&amp;gt;right); if(rightHeight == -1) return -1; 求高度差，如果高度差大于1则返回-1证明不是平衡二叉树，如果没有大于1，则选取左右子树的最大高度，再加上自己节点的高度1，向上返回。 //如果相差大于1返回-1代表不是平衡二叉树 if(abs(leftHeight - rightHeight) &amp;gt; 1){ // 中 return -1; }else{ return max(leftHeight,rightHeight)+1; } 题解 Link to heading C++ Link to heading /** * Definition for a binary tree node.</description>
+    </item>
+    <item>
+      <title>2024-05-23刷题</title>
+      <link>http://localhost:1313/posts/leetcode12/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode12/</guid>
+      <description>2024-05-23 刷题 Link to heading 递归实现树的三种遍历 Link to heading 先序遍历 Link to heading 打印出二叉树的先序遍历的节点&#xA;确定参数与返回值： 因为要打印出前序遍历节点的数值，所以参数里需要传入vector来放节点的数值不需要什么返回值 void traversal(TreeNode* cur, vector&amp;lt;int&amp;gt;&amp;amp; vec) 确定终止条件： 当前遍历的节点是空了，则本次递归结束 if (cur == NULL) return; 确定单层递归的逻辑 前序遍历是中左右的循序，所以在单层递归的逻辑，是要先取中节点的数值，代码如下： vec.push_back(cur-&amp;gt;val); // 取值 traversal(cur-&amp;gt;left, vec); // 遍历左树 traversal(cur-&amp;gt;right, vec); // 遍历右树 完整代码 Link to heading /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: void traversal(TreeNode *cur , vector&amp;lt;int&amp;gt; &amp;amp;result){ if(cur == nullptr) return; result.</description>
+    </item>
+    <item>
+      <title>2024-05-23刷题2</title>
+      <link>http://localhost:1313/posts/leetcode13/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode13/</guid>
+      <description>2024-05-23 刷题2 Link to heading 二叉树层次遍历 Link to heading 思路 Link to heading 需要借用一个辅助数据结构即队列来实现，队列先进先出，符合一层一层遍历的逻辑，而用栈先进后出适合模拟深度优先遍历也就是递归的逻辑。 而这种层序遍历方式就是图论中的广度优先遍历 在出队列的时候，将出队列元素的左右孩子加入队列&#xA;初始化结果数组以及需要需要的队列 每一层，出队列，并且，将下一层的节点加入队列中 因为，每次都有下一层的元素入队列，所以，需要保存当前层的数量 当下一层全部为nullptr的时候，队列为空结束 实现 Link to heading 非递归&#xA;/** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; levelOrder(TreeNode* root) { queue&amp;lt;TreeNode *&amp;gt; que; if(root !</description>
+    </item>
+    <item>
+      <title>2024-05-23刷题3</title>
+      <link>http://localhost:1313/posts/leetcode14/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode14/</guid>
+      <description>2024-05-23 刷题3 Link to heading 104.二叉树的最大深度 559.n叉树的最大深度 111.二叉树的最小深度 见2024-05-23 刷题2&#xA;222. 完全二叉树的节点个数 Link to heading 20:03&#xA;思路 Link to heading 层次遍历，然后统计个数&#xA;题解 Link to heading C++ Link to heading /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: int countNodes(TreeNode* root) { queue&amp;lt;TreeNode*&amp;gt; que; if(root) que.</description>
+    </item>
+    <item>
+      <title>二叉树遍历总结</title>
+      <link>http://localhost:1313/posts/summary1/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/summary1/</guid>
+      <description>二叉树遍历总结 Link to heading 2024-05-23 回忆：今天学习了二叉树的四种遍历方式，先序遍历，中序遍历，后序遍历，层序遍历。分别使用递归以及迭代的方法实现了这四种遍历方式。&#xA;递归实现三种遍历 Link to heading 前中后三种遍历方式，分别代表访问节点的顺序所以，只要更改访问顺序即可实现。&#xA;传递当前节点，以及结果数组 当前节点为nullptr的时候返回 if(cur == nullptr) return; 然后下面三句的顺序，代表中左右，遍历，同理，当中序遍历和后序遍历的时候，更改这几行的顺序即可 //先序遍历 result.push_back(cur-&amp;gt;val); traversal(cur-&amp;gt;left,result); traversal(cur-&amp;gt;right,result); //中序遍历 traversal(cur-&amp;gt;left,vec); //遍历左 vec.push_back(cur-&amp;gt;val); //取 traversal(cur-&amp;gt;right,vec); //遍历右 //后序遍历 traversal(cur-&amp;gt;left,vec); //遍历左 traversal(cur-&amp;gt;right,vec); //遍历右 vec.push_back(cur-&amp;gt;val); //取 完整代码&#xA;/** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: void traversal(TreeNode *cur , vector&amp;lt;int&amp;gt; &amp;amp;result){ if(cur == nullptr) return; //先序遍历 result.</description>
+    </item>
+    <item>
+      <title>2024-05-19刷题</title>
+      <link>http://localhost:1313/posts/leetcode10/</link>
+      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode10/</guid>
+      <description>2024-05-19刷题 Link to heading 20. 有效的括号 Link to heading 19:01&#xA;思路 Link to heading 因为这道题， s 仅由括号 &#39;()[]{}&#39; 组成而没有交错的情况，所以只需要判断栈顶的元素与当前元素是否匹配即可&#xA;题解 Link to heading C++ Link to heading class Solution { public: bool isValid(string s) { //如果数组大小为奇数则一定不满足 if(s.length() % 2 != 0) return false; stack&amp;lt;int&amp;gt; in; //将s入栈，可以直接，将左括号输入成对应的右括号，然后当右括号到达的时候进行出栈判断进行匹配即可 for(int i = 0 ; i &amp;lt; s.length() ; i++){ if(s[i] == &amp;#39;(&amp;#39;) in.push(&amp;#39;)&amp;#39;); else if(s[i] == &amp;#39;{&amp;#39;) in.push(&amp;#39;}&amp;#39;); else if(s[i] == &amp;#39;[&amp;#39;) in.</description>
+    </item>
     <item>
       <title>2024-05-17刷题</title>
       <link>http://localhost:1313/posts/leetcode9/</link>
@@ -70,6 +182,13 @@
       <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/leetcode8/</guid>
       <description>2024-05-16 Link to heading 28.实现strStr() Link to heading 14:40&#xA;思路 Link to heading 需要计算出来next数组&#xA;从前到后遍历匹配字符串 如果前后缀不同，则回退，没必要回退到开头，可以会退到上一个next对应的位置 如果匹配则j++ 然后更具next数组进行匹配 当不匹配的时候将j移动到next[j]的位置直到匹配成功 匹配成功则向后移动j j等于匹配串长度的时候则说明匹配成功 复杂度 Link to heading 时间复杂度: O(n + m) 空间复杂度: O(m), 只需要保存字符串needle的前缀表 题解 Link to heading C++ Link to heading class Solution { public: //获得next表下一个 void getNext(int* next, const string&amp;amp; s){ //初始化 int j = -1; next[0] = j; //从前往后遍历s字符串 for(int i = 1 ; i &amp;lt; s.size() ; i++){ //如果前后缀不同，则回退，没必要回退，到开头可以会退到上一个next对应的位置 while(j &amp;gt;= 0 &amp;amp;&amp;amp; s[i] !</description>
+    </item>
+    <item>
+      <title>2024-05-21刷题</title>
+      <link>http://localhost:1313/posts/leetcode11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode11/</guid>
+      <description>2024-05-21 Link to heading 239.滑动窗口最大值 Link to heading 21:27&#xA;思路 Link to heading 使用一个双端队列实现一个，单调队列，保证，队列中的元素，从大到小排列， 当使用push的时候，从后往前移除所有小于该值的元素 当使用pop(value)的时候，如果，pop的值等于队列中front的值，则pop。 使用front返回最大值，也就是第一个元素。&#xA;每次窗口移动的时候， 调用que.pop(滑动窗口中移除元素的数值)，移除窗口左边的元素，如果是最大值，则会pop成功，不是最大值，也不在队列里，不用处理 que.push(滑动窗口添加元素的数值)，将新元素按又大到小放到队列里 然后que.front()就返回我们要的最大值。&#xA;复杂度 Link to heading 时间复杂度: O(n) 空间复杂度: O(k)&#xA;题解 Link to heading C++ Link to heading class Solution { //单调队列 private: class Myqueue{ public:p deque&amp;lt;int&amp;gt; que; //push进入队列,如果push的数值大于入口元素的数值，那么就将队列后端的数值弹出，直到push的数值小于等于队列入口元素的数值为止。 // 这样就保持了队列里的数值是单调从大到小的了。 void push(int value){ while(!que.empty() &amp;amp;&amp;amp; value &amp;gt; que.back()){ que.pop_back(); } que.push_back(value); } //pop(value)：如果窗口移除的元素value等于单调队列的出口元素，那么队列弹出元素，否则不用任何操作 void pop(int value){ while(!que.empty() &amp;amp;&amp;amp; que.front() == value){ que.</description>
     </item>
   </channel>
 </rss>

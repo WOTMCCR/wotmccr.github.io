@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>回溯法 on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/</link>
+    <description>Recent content in 回溯法 on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 07 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-06-07刷题</title>
+      <link>http://localhost:1313/posts/leetcode24/</link>
+      <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode24/</guid>
+      <description>2024-06-07 Link to heading 93. 复原 IP 地址 Link to heading 20:42&#xA;思路 Link to heading 也属于分割问题，只需要判断分割的数属于0～255即可&#xA;for (int i = startIndex; i &amp;lt; s.size(); i++) { if (isValid(s, startIndex, i)) { // 判断 [startIndex,i] 这个区间的子串是否合法 s.insert(s.begin() + i + 1 , &amp;#39;.&amp;#39;); // 在i的后面插入一个逗点 pointNum++; backtracking(s, i + 2, pointNum); // 插入逗点之后下一个子串的起始位置为i+2 pointNum--; // 回溯 s.erase(s.begin() + i + 1); // 回溯删掉逗点 } else break; // 不合法，直接结束本层循环 } 复杂度 Link to heading 时间复杂度: O(3^4)，IP地址最多包含4个数字，每个数字最多有3种可能的分割方式，则搜索树的最大深度为4，每个节点最多有3个子节点。 空间复杂度: O(n) 题解 Link to heading C++ Link to heading class Solution { private: vector&amp;lt;string&amp;gt; result;// 记录结果 // startIndex: 搜索的起始位置，pointNum:添加逗点的数量 void backtracking(string&amp;amp; s, int startIndex, int pointNum) { if (pointNum == 3) { // 逗点数量为3时，分隔结束 // 判断第四段子字符串是否合法，如果合法就放进result中 if (isValid(s, startIndex, s.</description>
+    </item>
+    <item>
+      <title>2024-06-07刷题2</title>
+      <link>http://localhost:1313/posts/leetcode25/</link>
+      <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode25/</guid>
+      <description>2024-06-07刷题2 Link to heading 491. 非递减子序列 Link to heading 19:16&#xA;思路 Link to heading 同一父节点下的同层上使用过的元素就不能再使用了&#xA;复杂度 Link to heading 注意⚠️ Link to heading unordered_set&amp;lt;int&amp;gt; uset; 是记录本层元素是否重复使用，新的一层uset都会重新定义（清空），所以要知道uset只负责本层！&#xA;题解 Link to heading C++ Link to heading class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; vector&amp;lt;int&amp;gt; path; void Backtracking(vector&amp;lt;int&amp;gt; &amp;amp;nums , int startIndex){ if(path.size() &amp;gt; 1){ result.push_back(path); } //每一层的去重 unordered_set&amp;lt;int&amp;gt; uset; for(int i = startIndex ; i&amp;lt;nums.size();i++){ if((!path.empty() &amp;amp;&amp;amp; nums[i] &amp;lt; path.back()) ||(uset.find(nums[i]) != uset.</description>
+    </item>
+    <item>
+      <title>2024-06-06刷题</title>
+      <link>http://localhost:1313/posts/leetcode21/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode21/</guid>
+      <description>2024-06-06 Link to heading 77. 组合 Link to heading 15:30&#xA;思路 Link to heading 记录当前遍历到的位置，然后从当前位置的下一个继续进行遍历，遍历之后进行回溯&#xA;复杂度 Link to heading 时间复杂度: O(n * 2^n) 空间复杂度: O(n)&#xA;注意 Link to heading 可以当当前位置的元素 不满足要求的个数的时候就不继续遍历了&#xA;for (int i = startIndex; i &amp;lt;= n - (k - path.size()) + 1; i++) { // 优化的地方 题解 Link to heading C++ Link to heading class Solution { public: //结果 vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; //用于存放路径 vector&amp;lt;int&amp;gt; path; void Backtracking(int cur,int n,int k){ if(path.</description>
+    </item>
+    <item>
+      <title>2024-06-06刷题2</title>
+      <link>http://localhost:1313/posts/leetcode22/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode22/</guid>
+      <description>2024-06-06刷题2 Link to heading 216.组合总和III Link to heading 15:44&#xA;思路 Link to heading 与找到所有数的组合的遍历思路一致 在终止条件的部分进行验证判断数据的和是否满足条件，如果满足条件才将路径添加到结果集合中 并且在处理和回溯的部分，对与sum值进行处理。&#xA;剪枝 Link to heading if (sum &amp;gt; targetSum) { // 剪枝操作 return; } 题解 Link to heading C++ Link to heading class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; result; vector&amp;lt;int&amp;gt; path; int sum = 0; void backtracing(int cur, int n , int k){ if(path.size() == k){ if(sum == n) { result.push_back(path); } return; } for(int i = cur ; i &amp;lt;= 9 - (k - path.</description>
+    </item>
+    <item>
+      <title>2024-06-06刷题3</title>
+      <link>http://localhost:1313/posts/leetcode23/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode23/</guid>
+      <description>2024-06-06刷题3 Link to heading 39.组合总和 Link to heading 16:35&#xA;思路 Link to heading 主要是可以重复选取，并且不限制数量，这两点是与之前不太一样的部分&#xA;应该不用刻意考虑去重，因为，是一个无重复元素的整数数组&#xA;复杂度 Link to heading 时间复杂度: O(n * 2^n)，注意这只是复杂度的上界，因为剪枝的存在，真实的时间复杂度远小于此 空间复杂度: O(target)&#xA;注意⚠️ Link to heading 我一直再想如何循环，trace元素相同的情况，但其实 直接如下即可&#xA;for(int i = index ; i &amp;lt; candidates.size() ; i++){ result.push_back(candidates[i]); sum+=candidates[i]; Backtracking(candidates,target,i); result.pop_back(candidates[i]); sum-=candidates[i]; } ![[../static/attachments/Screenshot 2024-06-06 at 17.00.08.png]] 相当于在下一层中，再选取下一个元素。&#xA;题解 Link to heading C++ Link to heading class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; results; vector&amp;lt;int&amp;gt;result; int sum; void Backtracking(vector&amp;lt;int&amp;gt;&amp;amp; candidates , int target , int index){ // if(sum &amp;gt; target){ // return; // } if(sum == target){ results.</description>
+    </item>
+  </channel>
+</rss>

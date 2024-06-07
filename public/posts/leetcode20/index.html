@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  2024-06-04刷题 · WOTMCCR&#39;S BLOG
+</title>
+  <meta charset="utf-8">
+<meta name="msvalidate.01" content="B41B9A48E0DC515BE32651155BBCB957" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="google-site-verification" content="yfkZl0tkaMh-IHpqKsR6ItjE6tQiJpm0PXvNHCvPVAw" />
+
+
+
+
+
+<meta name="author" content="CCR">
+<meta name="description" content=" 669. 修剪二叉搜索树 108.将有序数组转换为二叉搜索树  538.把二叉搜索树转换为累加树">
+<meta name="keywords" content="Better,Faster,Stronger,">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="2024-06-04刷题">
+  <meta name="twitter:description" content=" 669. 修剪二叉搜索树 108.将有序数组转换为二叉搜索树  538.把二叉搜索树转换为累加树">
+
+<meta property="og:url" content="http://localhost:1313/posts/leetcode20/">
+  <meta property="og:site_name" content="WOTMCCR&#39;S BLOG">
+  <meta property="og:title" content="2024-06-04刷题">
+  <meta property="og:description" content=" 669. 修剪二叉搜索树 108.将有序数组转换为二叉搜索树  538.把二叉搜索树转换为累加树">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-06-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-04T00:00:00+00:00">
+    <meta property="article:tag" content="树">
+    <meta property="article:tag" content="Leetcode">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/leetcode20/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      WOTMCCR&#39;S BLOG
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/categories/">Categories</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/leetcode20/">
+              2024-06-04刷题
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-06-04T00:00:00Z">
+                June 4, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/%E6%A0%91/">树</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/leetcode/">Leetcode</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="2024-06-04-刷题">
+  2024-06-04 刷题
+  <a class="heading-link" href="#2024-06-04-%e5%88%b7%e9%a2%98">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="669修剪二叉搜索树">
+  669.修剪二叉搜索树
+  <a class="heading-link" href="#669%e4%bf%ae%e5%89%aa%e4%ba%8c%e5%8f%89%e6%90%9c%e7%b4%a2%e6%a0%91">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>19:49</p>
+<h4 id="思路">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>确定函数参数
+有返回值，更方便，可以通过递归函数的返回值来移除节点。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> trimBST(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root, <span style="color:#ff7b72">int</span> low, <span style="color:#ff7b72">int</span> high)
+</span></span></code></pre></div><p>确定终止条件
+因为修剪操作不是在终止条件上进行的，所以遇到空节点直接返回</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">if</span> (root <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#ff7b72">nullptr</span> ) <span style="color:#ff7b72">return</span> <span style="color:#ff7b72">nullptr</span>;
+</span></span></code></pre></div><p>确定单层递归逻辑
+处理是否在区间内，进入下一层</p>
+<h4 id="注意">
+  注意⚠️
+  <a class="heading-link" href="#%e6%b3%a8%e6%84%8f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>寻找符合条件的左右子树需要</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//小于low将，右孩子连到父的左边
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">if</span>(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val <span style="color:#ff7b72;font-weight:bold">&lt;</span> low){
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//需要找到符合条件的右孩子。
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>right <span style="color:#ff7b72;font-weight:bold">=</span> trimBST(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right,low,high);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> right;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//大于high将，左孩子，连到父的右边
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">if</span>(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val <span style="color:#ff7b72;font-weight:bold">&gt;</span> high){
+</span></span><span style="display:flex;"><span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>left <span style="color:#ff7b72;font-weight:bold">=</span> trimBST(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left,low,high);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> left;
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><h4 id="题解">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c">
+  C++
+  <a class="heading-link" href="#c">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">//返回treeNode方便删除
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>    TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> trimBST(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root, <span style="color:#ff7b72">int</span> low, <span style="color:#ff7b72">int</span> high) {
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//终止条件
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">if</span>(root <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#ff7b72">nullptr</span>) <span style="color:#ff7b72">return</span> <span style="color:#ff7b72">nullptr</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//处理逻辑
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#8b949e;font-style:italic">//小于low将，右孩子连到父的左边
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">if</span>(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val <span style="color:#ff7b72;font-weight:bold">&lt;</span> low){
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//需要找到符合条件的右孩子。
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>right <span style="color:#ff7b72;font-weight:bold">=</span> trimBST(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right,low,high);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> right;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//大于high将，左孩子，连到父的右边
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">if</span>(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val <span style="color:#ff7b72;font-weight:bold">&gt;</span> high){
+</span></span><span style="display:flex;"><span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>left <span style="color:#ff7b72;font-weight:bold">=</span> trimBST(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left,low,high);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> left;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//下一层
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left <span style="color:#ff7b72;font-weight:bold">=</span> trimBST(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left,low,high);
+</span></span><span style="display:flex;"><span>        root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right <span style="color:#ff7b72;font-weight:bold">=</span> trimBST(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right,low,high);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> root;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="108将有序数组转换为二叉搜索树">
+  108.将有序数组转换为二叉搜索树
+  <a class="heading-link" href="#108%e5%b0%86%e6%9c%89%e5%ba%8f%e6%95%b0%e7%bb%84%e8%bd%ac%e6%8d%a2%e4%b8%ba%e4%ba%8c%e5%8f%89%e6%90%9c%e7%b4%a2%e6%a0%91">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>20:12</p>
+<h4 id="思路-1">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>因为是有序数组，所以，中间的节点就是根节点</p>
+<h4 id="题解-1">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c-1">
+  C++
+  <a class="heading-link" href="#c-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>traversal(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#ff7b72;font-weight:bold">&amp;</span>nums,<span style="color:#ff7b72">int</span> left ,<span style="color:#ff7b72">int</span> right){
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//叶子
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">if</span>(left <span style="color:#ff7b72;font-weight:bold">&gt;</span> right) <span style="color:#ff7b72">return</span> <span style="color:#ff7b72">nullptr</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">int</span> mid <span style="color:#ff7b72;font-weight:bold">=</span> left <span style="color:#ff7b72;font-weight:bold">+</span> (right <span style="color:#ff7b72;font-weight:bold">-</span> left) <span style="color:#ff7b72;font-weight:bold">/</span> <span style="color:#a5d6ff">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>node <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#ff7b72">new</span> TreeNode(nums[mid]);
+</span></span><span style="display:flex;"><span>        node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left <span style="color:#ff7b72;font-weight:bold">=</span> traversal(nums,left,mid<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>);
+</span></span><span style="display:flex;"><span>        node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right <span style="color:#ff7b72;font-weight:bold">=</span> traversal(nums,mid<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">1</span>,right);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> node;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#d2a8ff;font-weight:bold">sortedArrayToBST</span>(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums) {
+</span></span><span style="display:flex;"><span>        TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>root <span style="color:#ff7b72;font-weight:bold">=</span> traversal(nums,<span style="color:#a5d6ff">0</span>,nums.size() <span style="color:#ff7b72;font-weight:bold">-</span> <span style="color:#a5d6ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> root;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="538二叉搜索树转换为累加树">
+  538.二叉搜索树转换为累加树
+  <a class="heading-link" href="#538%e4%ba%8c%e5%8f%89%e6%90%9c%e7%b4%a2%e6%a0%91%e8%bd%ac%e6%8d%a2%e4%b8%ba%e7%b4%af%e5%8a%a0%e6%a0%91">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>20:43</p>
+<h4 id="思路-2">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>从树中可以看出累加的顺序是右中左，所以我们需要反中序遍历这个二叉树，然后顺序累加就可以了</strong>。</p>
+<h4 id="题解-2">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c-2">
+  C++
+  <a class="heading-link" href="#c-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">int</span> pre <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">void</span> <span style="color:#d2a8ff;font-weight:bold">traversal</span>(TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>root){
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(root <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#ff7b72">nullptr</span>) <span style="color:#ff7b72">return</span>;
+</span></span><span style="display:flex;"><span>        traversal(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right);
+</span></span><span style="display:flex;"><span>        root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val <span style="color:#ff7b72;font-weight:bold">=</span> root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val <span style="color:#ff7b72;font-weight:bold">+</span> pre;
+</span></span><span style="display:flex;"><span>        pre <span style="color:#ff7b72;font-weight:bold">=</span> root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val;
+</span></span><span style="display:flex;"><span>        traversal(root<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#d2a8ff;font-weight:bold">convertBST</span>(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        traversal(root);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> root;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     CCR 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MEASUREMENT_ID');
+        }
+      </script>
+    
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

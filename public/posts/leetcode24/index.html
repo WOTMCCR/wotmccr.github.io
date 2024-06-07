@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  2024-06-07刷题 · WOTMCCR&#39;S BLOG
+</title>
+  <meta charset="utf-8">
+<meta name="msvalidate.01" content="B41B9A48E0DC515BE32651155BBCB957" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="google-site-verification" content="yfkZl0tkaMh-IHpqKsR6ItjE6tQiJpm0PXvNHCvPVAw" />
+
+
+
+
+
+<meta name="author" content="CCR">
+<meta name="description" content="● 93.复原IP地址 ● 78.子集 ● 90.子集II">
+<meta name="keywords" content="Better,Faster,Stronger,">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="2024-06-07刷题">
+  <meta name="twitter:description" content="● 93.复原IP地址 ● 78.子集 ● 90.子集II">
+
+<meta property="og:url" content="http://localhost:1313/posts/leetcode24/">
+  <meta property="og:site_name" content="WOTMCCR&#39;S BLOG">
+  <meta property="og:title" content="2024-06-07刷题">
+  <meta property="og:description" content="● 93.复原IP地址 ● 78.子集 ● 90.子集II">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-06-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-07T00:00:00+00:00">
+    <meta property="article:tag" content="Leetcode">
+    <meta property="article:tag" content="回溯法">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/leetcode24/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      WOTMCCR&#39;S BLOG
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/categories/">Categories</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/leetcode24/">
+              2024-06-07刷题
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-06-07T00:00:00Z">
+                June 7, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/leetcode/">Leetcode</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/">回溯法</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="2024-06-07">
+  2024-06-07
+  <a class="heading-link" href="#2024-06-07">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="93-复原-ip-地址">
+  93. 复原 IP 地址
+  <a class="heading-link" href="#93-%e5%a4%8d%e5%8e%9f-ip-%e5%9c%b0%e5%9d%80">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>20:42</p>
+<h4 id="思路">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>也属于分割问题，只需要判断分割的数属于0～255即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">for</span> (<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> startIndex; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> s.size(); i<span style="color:#ff7b72;font-weight:bold">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> (isValid(s, startIndex, i)) { <span style="color:#8b949e;font-style:italic">// 判断 [startIndex,i] 这个区间的子串是否合法
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        s.insert(s.begin() <span style="color:#ff7b72;font-weight:bold">+</span> i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span> , <span style="color:#a5d6ff">&#39;.&#39;</span>);  <span style="color:#8b949e;font-style:italic">// 在i的后面插入一个逗点
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        pointNum<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>        backtracking(s, i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">2</span>, pointNum);   <span style="color:#8b949e;font-style:italic">// 插入逗点之后下一个子串的起始位置为i+2
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        pointNum<span style="color:#ff7b72;font-weight:bold">--</span>;                         <span style="color:#8b949e;font-style:italic">// 回溯
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        s.erase(s.begin() <span style="color:#ff7b72;font-weight:bold">+</span> i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span>);         <span style="color:#8b949e;font-style:italic">// 回溯删掉逗点
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>    } <span style="color:#ff7b72">else</span> <span style="color:#ff7b72">break</span>; <span style="color:#8b949e;font-style:italic">// 不合法，直接结束本层循环
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>}
+</span></span></code></pre></div><h4 id="复杂度">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>时间复杂度: O(3^4)，IP地址最多包含4个数字，每个数字最多有3种可能的分割方式，则搜索树的最大深度为4，每个节点最多有3个子节点。</li>
+<li>空间复杂度: O(n)</li>
+</ul>
+<h4 id="题解">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c">
+  C++
+  <a class="heading-link" href="#c">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">private</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>string<span style="color:#ff7b72;font-weight:bold">&gt;</span> result;<span style="color:#8b949e;font-style:italic">// 记录结果
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>    <span style="color:#8b949e;font-style:italic">// startIndex: 搜索的起始位置，pointNum:添加逗点的数量
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>    <span style="color:#ff7b72">void</span> <span style="color:#d2a8ff;font-weight:bold">backtracking</span>(string<span style="color:#ff7b72;font-weight:bold">&amp;</span> s, <span style="color:#ff7b72">int</span> startIndex, <span style="color:#ff7b72">int</span> pointNum) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> (pointNum <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">3</span>) { <span style="color:#8b949e;font-style:italic">// 逗点数量为3时，分隔结束
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#8b949e;font-style:italic">// 判断第四段子字符串是否合法，如果合法就放进result中
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#ff7b72">if</span> (isValid(s, startIndex, s.size() <span style="color:#ff7b72;font-weight:bold">-</span> <span style="color:#a5d6ff">1</span>)) {
+</span></span><span style="display:flex;"><span>                result.push_back(s);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> (<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> startIndex; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> s.size(); i<span style="color:#ff7b72;font-weight:bold">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> (isValid(s, startIndex, i)) { <span style="color:#8b949e;font-style:italic">// 判断 [startIndex,i] 这个区间的子串是否合法
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                s.insert(s.begin() <span style="color:#ff7b72;font-weight:bold">+</span> i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span> , <span style="color:#a5d6ff">&#39;.&#39;</span>);  <span style="color:#8b949e;font-style:italic">// 在i的后面插入一个逗点
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                pointNum<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>                backtracking(s, i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">2</span>, pointNum);   <span style="color:#8b949e;font-style:italic">// 插入逗点之后下一个子串的起始位置为i+2
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                pointNum<span style="color:#ff7b72;font-weight:bold">--</span>;                         <span style="color:#8b949e;font-style:italic">// 回溯
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                s.erase(s.begin() <span style="color:#ff7b72;font-weight:bold">+</span> i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span>);         <span style="color:#8b949e;font-style:italic">// 回溯删掉逗点
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            } <span style="color:#ff7b72">else</span> <span style="color:#ff7b72">break</span>; <span style="color:#8b949e;font-style:italic">// 不合法，直接结束本层循环
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic">// 判断字符串s在左闭又闭区间[start, end]所组成的数字是否合法
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>    <span style="color:#ff7b72">bool</span> <span style="color:#d2a8ff;font-weight:bold">isValid</span>(<span style="color:#ff7b72">const</span> string<span style="color:#ff7b72;font-weight:bold">&amp;</span> s, <span style="color:#ff7b72">int</span> start, <span style="color:#ff7b72">int</span> end) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> (start <span style="color:#ff7b72;font-weight:bold">&gt;</span> end) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> false;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> (s[start] <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#39;0&#39;</span> <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> start <span style="color:#ff7b72;font-weight:bold">!=</span> end) { <span style="color:#8b949e;font-style:italic">// 0开头的数字不合法
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#ff7b72">return</span> false;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">int</span> num <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> (<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> start; i <span style="color:#ff7b72;font-weight:bold">&lt;=</span> end; i<span style="color:#ff7b72;font-weight:bold">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> (s[i] <span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#a5d6ff">&#39;9&#39;</span> <span style="color:#ff7b72;font-weight:bold">||</span> s[i] <span style="color:#ff7b72;font-weight:bold">&lt;</span> <span style="color:#a5d6ff">&#39;0&#39;</span>) { <span style="color:#8b949e;font-style:italic">// 遇到非数字字符不合法
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#ff7b72">return</span> false;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            num <span style="color:#ff7b72;font-weight:bold">=</span> num <span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#a5d6ff">10</span> <span style="color:#ff7b72;font-weight:bold">+</span> (s[i] <span style="color:#ff7b72;font-weight:bold">-</span> <span style="color:#a5d6ff">&#39;0&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> (num <span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#a5d6ff">255</span>) { <span style="color:#8b949e;font-style:italic">// 如果大于255了不合法
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#ff7b72">return</span> false;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> true;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>string<span style="color:#ff7b72;font-weight:bold">&gt;</span> restoreIpAddresses(string s) {
+</span></span><span style="display:flex;"><span>        result.clear();
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> (s.size() <span style="color:#ff7b72;font-weight:bold">&lt;</span> <span style="color:#a5d6ff">4</span> <span style="color:#ff7b72;font-weight:bold">||</span> s.size() <span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#a5d6ff">12</span>) <span style="color:#ff7b72">return</span> result; <span style="color:#8b949e;font-style:italic">// 算是剪枝了
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        backtracking(s, <span style="color:#a5d6ff">0</span>, <span style="color:#a5d6ff">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="78子集">
+  78.子集
+  <a class="heading-link" href="#78%e5%ad%90%e9%9b%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>18:42</p>
+<h4 id="思路-1">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>组合问题和分割问题都是收集树的叶子节点，而子集问题是找树的所有节点！</strong></p>
+<p>其实子集也是一种组合问题，因为它的集合是无序的，子集{1,2} 和 子集{2,1}是一样的。</p>
+<p><strong>那么既然是无序，取过的元素不会重复取，写回溯算法的时候，for就要从startIndex开始，而不是从0开始！</strong></p>
+<p><strong>求取子集问题，不需要任何剪枝！因为子集就是要遍历整棵树</strong>。</p>
+<h4 id="复杂度-1">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>时间复杂度: O(n * 2^n)
+空间复杂度: O(n)</p>
+<h4 id="题解-1">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c-1">
+  C++
+  <a class="heading-link" href="#c-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span> result;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> path;    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">void</span> <span style="color:#d2a8ff;font-weight:bold">Backtracking</span>(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums,<span style="color:#ff7b72">int</span> startIndex){
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//每次都应该记录结果
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        result.push_back(path);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(startIndex <span style="color:#ff7b72;font-weight:bold">&gt;=</span> nums.size()){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> startIndex ; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> nums.size() ; i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            path.push_back(nums[i]);
+</span></span><span style="display:flex;"><span>            Backtracking(nums , i <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">1</span>);
+</span></span><span style="display:flex;"><span>            path.pop_back();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span> subsets(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums) {
+</span></span><span style="display:flex;"><span>        result.clear();
+</span></span><span style="display:flex;"><span>        path.clear();
+</span></span><span style="display:flex;"><span>        Backtracking(nums,<span style="color:#a5d6ff">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="90子集ii">
+  90.子集II
+  <a class="heading-link" href="#90%e5%ad%90%e9%9b%86ii">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>18:48</p>
+<h4 id="思路-2">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>![[Screenshot 2024-06-07 at 19.03.56.png]]</p>
+<h4 id="复杂度-2">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h4 id="注意">
+  注意⚠️
+  <a class="heading-link" href="#%e6%b3%a8%e6%84%8f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>树层去重的话，需要对数组排序！</strong></p>
+<h4 id="题解-2">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c-2">
+  C++
+  <a class="heading-link" href="#c-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span> result;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> path;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">void</span> <span style="color:#d2a8ff;font-weight:bold">Backtracking</span>(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums , vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">bool</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#ff7b72;font-weight:bold">&amp;</span>traveled , <span style="color:#ff7b72">int</span> startIndex){
+</span></span><span style="display:flex;"><span>        result.push_back(path);
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//终止条件        
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">if</span>(startIndex <span style="color:#ff7b72;font-weight:bold">&gt;=</span> nums.size()){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//循环条件
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> startIndex ; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> nums.size() ; i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(i<span style="color:#ff7b72;font-weight:bold">&gt;</span><span style="color:#a5d6ff">0</span> <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> traveled[i<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>] <span style="color:#ff7b72;font-weight:bold">==</span> false <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> nums[i<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>] <span style="color:#ff7b72;font-weight:bold">==</span> nums[i]){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">continue</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            path.push_back(nums[i]);
+</span></span><span style="display:flex;"><span>            traveled[i] <span style="color:#ff7b72;font-weight:bold">=</span> true;
+</span></span><span style="display:flex;"><span>            Backtracking(nums,traveled,i<span style="color:#ff7b72;font-weight:bold">+</span><span style="color:#a5d6ff">1</span>);
+</span></span><span style="display:flex;"><span>            path.pop_back();
+</span></span><span style="display:flex;"><span>            traveled[i] <span style="color:#ff7b72;font-weight:bold">=</span> false;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span> subsetsWithDup(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums) {
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">bool</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> traveled(nums.size() , false);
+</span></span><span style="display:flex;"><span>        sort(nums.begin(),nums.end());
+</span></span><span style="display:flex;"><span>        Backtracking(nums,traveled,<span style="color:#a5d6ff">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     CCR 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MEASUREMENT_ID');
+        }
+      </script>
+    
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

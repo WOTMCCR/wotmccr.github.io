@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  2024-05-23刷题 · WOTMCCR&#39;S BLOG
+</title>
+  <meta charset="utf-8">
+<meta name="msvalidate.01" content="B41B9A48E0DC515BE32651155BBCB957" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="google-site-verification" content="yfkZl0tkaMh-IHpqKsR6ItjE6tQiJpm0PXvNHCvPVAw" />
+
+
+
+
+
+<meta name="author" content="CCR">
+<meta name="description" content="递归以及迭代，和统一迭代实现先序，中序，后序遍历">
+<meta name="keywords" content="Better,Faster,Stronger,">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="2024-05-23刷题">
+  <meta name="twitter:description" content="递归以及迭代，和统一迭代实现先序，中序，后序遍历">
+
+<meta property="og:url" content="http://localhost:1313/posts/leetcode12/">
+  <meta property="og:site_name" content="WOTMCCR&#39;S BLOG">
+  <meta property="og:title" content="2024-05-23刷题">
+  <meta property="og:description" content="递归以及迭代，和统一迭代实现先序，中序，后序遍历">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-05-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-23T00:00:00+00:00">
+    <meta property="article:tag" content="Leetcode">
+    <meta property="article:tag" content="树">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/leetcode12/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      WOTMCCR&#39;S BLOG
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/categories/">Categories</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/leetcode12/">
+              2024-05-23刷题
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-05-23T00:00:00Z">
+                May 23, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/leetcode/">Leetcode</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/%E6%A0%91/">树</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="2024-05-23-刷题">
+  2024-05-23 刷题
+  <a class="heading-link" href="#2024-05-23-%e5%88%b7%e9%a2%98">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="递归实现树的三种遍历">
+  递归实现树的三种遍历
+  <a class="heading-link" href="#%e9%80%92%e5%bd%92%e5%ae%9e%e7%8e%b0%e6%a0%91%e7%9a%84%e4%b8%89%e7%a7%8d%e9%81%8d%e5%8e%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="先序遍历">
+  先序遍历
+  <a class="heading-link" href="#%e5%85%88%e5%ba%8f%e9%81%8d%e5%8e%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>打印出二叉树的先序遍历的节点</p>
+<ul>
+<li>确定参数与返回值：
+因为要打印出前序遍历节点的数值，所以参数里需要传入vector来放节点的数值不需要什么返回值</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">void</span> traversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> cur, vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> vec)
+</span></span></code></pre></div><ul>
+<li>确定终止条件：
+当前遍历的节点是空了，则本次递归结束</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">if</span> (cur <span style="color:#ff7b72;font-weight:bold">==</span> NULL) <span style="color:#ff7b72">return</span>;
+</span></span></code></pre></div><ul>
+<li>确定单层递归的逻辑
+前序遍历是中左右的循序，所以在单层递归的逻辑，是要先取中节点的数值，代码如下：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>vec.push_back(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);    <span style="color:#8b949e;font-style:italic">// 取值
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left, vec);  <span style="color:#8b949e;font-style:italic">// 遍历左树
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right, vec); <span style="color:#8b949e;font-style:italic">// 遍历右树
+</span></span></span></code></pre></div><h5 id="完整代码">
+  完整代码
+  <a class="heading-link" href="#%e5%ae%8c%e6%95%b4%e4%bb%a3%e7%a0%81">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">void</span> traversal(TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>cur , vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#ff7b72;font-weight:bold">&amp;</span>result){
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(cur <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#ff7b72">nullptr</span>) <span style="color:#ff7b72">return</span>;
+</span></span><span style="display:flex;"><span>        result.push_back(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>        traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left,result);
+</span></span><span style="display:flex;"><span>        traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right,result);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> preorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        traversal(root , result);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="中序遍历">
+  中序遍历
+  <a class="heading-link" href="#%e4%b8%ad%e5%ba%8f%e9%81%8d%e5%8e%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>同先序遍历的返回值与终止条件
+因为中序遍历的遍历顺序是，左中右，所以在单层递归中的逻辑是先遍历左树然后取值，之后遍历右子树。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left,vec);  <span style="color:#8b949e;font-style:italic">//遍历左
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>vec.push_back(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);   <span style="color:#8b949e;font-style:italic">//取
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right,vec); <span style="color:#8b949e;font-style:italic">//遍历右
+</span></span></span></code></pre></div><h5 id="完整代码-1">
+  完整代码
+  <a class="heading-link" href="#%e5%ae%8c%e6%95%b4%e4%bb%a3%e7%a0%81-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">void</span> traversal(TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>cur , vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#ff7b72;font-weight:bold">&amp;</span>result){
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(cur <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#ff7b72">nullptr</span>) <span style="color:#ff7b72">return</span>;
+</span></span><span style="display:flex;"><span>        traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left , result);
+</span></span><span style="display:flex;"><span>        result.push_back(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>        traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right , result);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> inorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        traversal(root , result);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="后序遍历">
+  后序遍历
+  <a class="heading-link" href="#%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left,vec);  <span style="color:#8b949e;font-style:italic">//遍历左
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right,vec); <span style="color:#8b949e;font-style:italic">//遍历右
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>vec.push_back(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);   <span style="color:#8b949e;font-style:italic">//取
+</span></span></span></code></pre></div><h5 id="完整代码-2">
+  完整代码
+  <a class="heading-link" href="#%e5%ae%8c%e6%95%b4%e4%bb%a3%e7%a0%81-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">void</span> traversal(TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>cur , vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#ff7b72;font-weight:bold">&amp;</span>result){
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(cur <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#ff7b72">nullptr</span>) <span style="color:#ff7b72">return</span>;
+</span></span><span style="display:flex;"><span>        traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left , result);
+</span></span><span style="display:flex;"><span>        traversal(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right , result);
+</span></span><span style="display:flex;"><span>        result.push_back(cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> postorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        traversal(root,result);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="迭代实现遍历的三种方式">
+  迭代实现遍历的三种方式
+  <a class="heading-link" href="#%e8%bf%ad%e4%bb%a3%e5%ae%9e%e7%8e%b0%e9%81%8d%e5%8e%86%e7%9a%84%e4%b8%89%e7%a7%8d%e6%96%b9%e5%bc%8f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="先序遍历-1">
+  先序遍历
+  <a class="heading-link" href="#%e5%85%88%e5%ba%8f%e9%81%8d%e5%8e%86-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>使用栈模拟递归的过程，每次将第一个出栈取值，为了要保证中左右遍历，根据栈的特点要按：右节点，左节点的顺序入栈。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> preorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        stack<span style="color:#ff7b72;font-weight:bold">&lt;</span>TreeNode<span style="color:#ff7b72;font-weight:bold">*&gt;</span> st;
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(root <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#ff7b72">nullptr</span>) <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>        st.push(root);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">while</span>(<span style="color:#ff7b72;font-weight:bold">!</span>st.empty()){
+</span></span><span style="display:flex;"><span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>node <span style="color:#ff7b72;font-weight:bold">=</span> st.top();
+</span></span><span style="display:flex;"><span>            st.pop();
+</span></span><span style="display:flex;"><span>            result.push_back(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//如果不为空入栈
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="中序遍历-1">
+  中序遍历
+  <a class="heading-link" href="#%e4%b8%ad%e5%ba%8f%e9%81%8d%e5%8e%86-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>使用栈记录遍历的过程，一直遍历到左子树为空，出栈当前元素，并且将右子树添加到栈中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> inorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        stack<span style="color:#ff7b72;font-weight:bold">&lt;</span>TreeNode<span style="color:#ff7b72;font-weight:bold">*&gt;</span> st;
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>cur <span style="color:#ff7b72;font-weight:bold">=</span> root;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">while</span>(cur <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span> <span style="color:#ff7b72;font-weight:bold">||</span> <span style="color:#ff7b72;font-weight:bold">!</span>st.empty()){
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(cur <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//如果当前节点不为空的话，则需要继续将左子树入栈
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                st.push(cur);
+</span></span><span style="display:flex;"><span>                cur <span style="color:#ff7b72;font-weight:bold">=</span> cur<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left;
+</span></span><span style="display:flex;"><span>            }<span style="color:#ff7b72">else</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//当前节点为空的话，到达了最底层，需要遍历的节点在栈中
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>node <span style="color:#ff7b72;font-weight:bold">=</span> st.top();
+</span></span><span style="display:flex;"><span>                st.pop();
+</span></span><span style="display:flex;"><span>                result.push_back(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>                cur <span style="color:#ff7b72;font-weight:bold">=</span> node <span style="color:#ff7b72;font-weight:bold">-&gt;</span> right;                
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="后序遍历-1">
+  后序遍历
+  <a class="heading-link" href="#%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>前序遍历的过程是中左右
+后序遍历的过程是左右中
+所以将前序遍历的左右遍历顺序颠倒为，中右左
+然后将最后的结果reverse ， 得到： 左右中</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> postorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//后序遍历左右中
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        stack<span style="color:#ff7b72;font-weight:bold">&lt;</span>TreeNode <span style="color:#ff7b72;font-weight:bold">*&gt;</span> st;
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(root <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#ff7b72">nullptr</span>) <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>        st.push(root);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">while</span>(<span style="color:#ff7b72;font-weight:bold">!</span>st.empty()){
+</span></span><span style="display:flex;"><span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>node <span style="color:#ff7b72;font-weight:bold">=</span> st.top();
+</span></span><span style="display:flex;"><span>            st.pop();
+</span></span><span style="display:flex;"><span>            result.push_back(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right);            
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        reverse(result.begin(),result.end());
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="统一迭代实现遍历的三种方式">
+  统一迭代实现遍历的三种方式
+  <a class="heading-link" href="#%e7%bb%9f%e4%b8%80%e8%bf%ad%e4%bb%a3%e5%ae%9e%e7%8e%b0%e9%81%8d%e5%8e%86%e7%9a%84%e4%b8%89%e7%a7%8d%e6%96%b9%e5%bc%8f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>将访问的节点放入栈中，把要处理的节点也放入栈中但是要做标记。</strong>
+<strong>在要处理的节点放入栈之后，紧接着放入一个空指针作为标记。</strong> 这种方法也可以叫做标记法。</p>
+<h4 id="关键">
+  关键
+  <a class="heading-link" href="#%e5%85%b3%e9%94%ae">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>空指针标记需要放到结果集中的元素</p>
+<h4 id="先序遍历-2">
+  先序遍历
+  <a class="heading-link" href="#%e5%85%88%e5%ba%8f%e9%81%8d%e5%8e%86-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> preorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        stack<span style="color:#ff7b72;font-weight:bold">&lt;</span>TreeNode <span style="color:#ff7b72;font-weight:bold">*&gt;</span> st;
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(root <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(root);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">while</span>(<span style="color:#ff7b72;font-weight:bold">!</span>st.empty()){
+</span></span><span style="display:flex;"><span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>node <span style="color:#ff7b72;font-weight:bold">=</span> st.top();
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(node <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>){
+</span></span><span style="display:flex;"><span>                st.pop();
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//不为空则将右左中入
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right<span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left);
+</span></span><span style="display:flex;"><span>                st.push(node);
+</span></span><span style="display:flex;"><span>                st.push(<span style="color:#ff7b72">nullptr</span>); <span style="color:#8b949e;font-style:italic">//插入标记
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            }<span style="color:#ff7b72">else</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//为空，是标记，意味着下一个该入结果集
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                st.pop();
+</span></span><span style="display:flex;"><span>                result.push_back(st.top()<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>                st.pop();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;         
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="中序遍历-2">
+  中序遍历
+  <a class="heading-link" href="#%e4%b8%ad%e5%ba%8f%e9%81%8d%e5%8e%86-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> inorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        stack<span style="color:#ff7b72;font-weight:bold">&lt;</span>TreeNode <span style="color:#ff7b72;font-weight:bold">*&gt;</span> st;
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(root <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(root);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">while</span>(<span style="color:#ff7b72;font-weight:bold">!</span>st.empty()){
+</span></span><span style="display:flex;"><span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>node <span style="color:#ff7b72;font-weight:bold">=</span> st.top();
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(node <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//该节点不为空，开始处理该节点的左中右
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                st.pop(); <span style="color:#8b949e;font-style:italic">//弹出当前节点，避免多次处理
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#8b949e;font-style:italic">//右中左入栈，因为栈是先进后出
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//右
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right);
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//中
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                st.push(node);
+</span></span><span style="display:flex;"><span>                st.push(<span style="color:#ff7b72">nullptr</span>); <span style="color:#8b949e;font-style:italic">//标记该处理这个节点
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#8b949e;font-style:italic">//左
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left <span style="color:#ff7b72;font-weight:bold">!=</span>  <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left);
+</span></span><span style="display:flex;"><span>            }<span style="color:#ff7b72">else</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//为空，所以下一个元素应该存到result中
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                st.pop();
+</span></span><span style="display:flex;"><span>                result.push_back(st.top()<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>                st.pop();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h4 id="后序遍历-2">
+  后序遍历
+  <a class="heading-link" href="#%e5%90%8e%e5%ba%8f%e9%81%8d%e5%8e%86-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * struct TreeNode {
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     int val;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *left;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode *right;
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> * };
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> postorderTraversal(TreeNode<span style="color:#ff7b72;font-weight:bold">*</span> root) {
+</span></span><span style="display:flex;"><span>        stack<span style="color:#ff7b72;font-weight:bold">&lt;</span>TreeNode<span style="color:#ff7b72;font-weight:bold">*&gt;</span> st;
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span>(root <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(root);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">while</span>(<span style="color:#ff7b72;font-weight:bold">!</span>st.empty()){
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//看看当前是否为标记，如果不是标记，则说明，还没遍历完
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            TreeNode <span style="color:#ff7b72;font-weight:bold">*</span>node <span style="color:#ff7b72;font-weight:bold">=</span> st.top();
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(node <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#8b949e;font-style:italic">//继续入栈
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                <span style="color:#8b949e;font-style:italic">//中右左
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>                st.pop();
+</span></span><span style="display:flex;"><span>                st.push(node);
+</span></span><span style="display:flex;"><span>                st.push(<span style="color:#ff7b72">nullptr</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right <span style="color:#ff7b72;font-weight:bold">!=</span><span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>right);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">if</span>(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#ff7b72">nullptr</span>) st.push(node<span style="color:#ff7b72;font-weight:bold">-&gt;</span>left);
+</span></span><span style="display:flex;"><span>            }<span style="color:#ff7b72">else</span>{
+</span></span><span style="display:flex;"><span>                st.pop();
+</span></span><span style="display:flex;"><span>                result.push_back(st.top()<span style="color:#ff7b72;font-weight:bold">-&gt;</span>val);
+</span></span><span style="display:flex;"><span>                st.pop();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     CCR 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MEASUREMENT_ID');
+        }
+      </script>
+    
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

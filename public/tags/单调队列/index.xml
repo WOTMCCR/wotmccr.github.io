@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>单调队列 on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</link>
+    <description>Recent content in 单调队列 on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-05-21刷题</title>
+      <link>http://localhost:1313/posts/leetcode11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode11/</guid>
+      <description>2024-05-21 Link to heading 239.滑动窗口最大值 Link to heading 21:27&#xA;思路 Link to heading 使用一个双端队列实现一个，单调队列，保证，队列中的元素，从大到小排列， 当使用push的时候，从后往前移除所有小于该值的元素 当使用pop(value)的时候，如果，pop的值等于队列中front的值，则pop。 使用front返回最大值，也就是第一个元素。&#xA;每次窗口移动的时候， 调用que.pop(滑动窗口中移除元素的数值)，移除窗口左边的元素，如果是最大值，则会pop成功，不是最大值，也不在队列里，不用处理 que.push(滑动窗口添加元素的数值)，将新元素按又大到小放到队列里 然后que.front()就返回我们要的最大值。&#xA;复杂度 Link to heading 时间复杂度: O(n) 空间复杂度: O(k)&#xA;题解 Link to heading C++ Link to heading class Solution { //单调队列 private: class Myqueue{ public:p deque&amp;lt;int&amp;gt; que; //push进入队列,如果push的数值大于入口元素的数值，那么就将队列后端的数值弹出，直到push的数值小于等于队列入口元素的数值为止。 // 这样就保持了队列里的数值是单调从大到小的了。 void push(int value){ while(!que.empty() &amp;amp;&amp;amp; value &amp;gt; que.back()){ que.pop_back(); } que.push_back(value); } //pop(value)：如果窗口移除的元素value等于单调队列的出口元素，那么队列弹出元素，否则不用任何操作 void pop(int value){ while(!que.empty() &amp;amp;&amp;amp; que.front() == value){ que.</description>
+    </item>
+  </channel>
+</rss>

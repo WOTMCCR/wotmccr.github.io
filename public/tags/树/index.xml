@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>树 on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/tags/%E6%A0%91/</link>
+    <description>Recent content in 树 on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E6%A0%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-06-04刷题</title>
+      <link>http://localhost:1313/posts/leetcode20/</link>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode20/</guid>
+      <description>2024-06-04 刷题 Link to heading 669.修剪二叉搜索树 Link to heading 19:49&#xA;思路 Link to heading 确定函数参数 有返回值，更方便，可以通过递归函数的返回值来移除节点。&#xA;TreeNode* trimBST(TreeNode* root, int low, int high) 确定终止条件 因为修剪操作不是在终止条件上进行的，所以遇到空节点直接返回&#xA;if (root == nullptr ) return nullptr; 确定单层递归逻辑 处理是否在区间内，进入下一层&#xA;注意⚠️ Link to heading 寻找符合条件的左右子树需要&#xA;//小于low将，右孩子连到父的左边 if(root-&amp;gt;val &amp;lt; low){ //需要找到符合条件的右孩子。 TreeNode *right = trimBST(root-&amp;gt;right,low,high); return right; } //大于high将，左孩子，连到父的右边 if(root-&amp;gt;val &amp;gt; high){ TreeNode *left = trimBST(root-&amp;gt;left,low,high); return left; } 题解 Link to heading C++ Link to heading /** * Definition for a binary tree node.</description>
+    </item>
+    <item>
+      <title>2024-05-29刷题2</title>
+      <link>http://localhost:1313/posts/leetcode19/</link>
+      <pubDate>Wed, 29 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode19/</guid>
+      <description>2024-05-29 刷题2 Link to heading 235.二叉搜索树的最近公共祖先 Link to heading 16:49&#xA;思路 Link to heading 根据二叉搜索树的性质，当节点的值处于p，q的区间中的时候，则属于公共祖先。&#xA;复杂度 Link to heading 注意⚠️ Link to heading 题解 Link to heading C++ Link to heading class Solution { public: TreeNode* traversal(TreeNode *cur , TreeNode *p,TreeNode *q){ if(cur == NULL) return cur; if (cur-&amp;gt;val &amp;gt; p-&amp;gt;val &amp;amp;&amp;amp; cur-&amp;gt;val &amp;gt; q-&amp;gt;val) { // 左 TreeNode* left = traversal(cur-&amp;gt;left, p, q); if (left != NULL) { return left; } } if (cur-&amp;gt;val &amp;lt; p-&amp;gt;val &amp;amp;&amp;amp; cur-&amp;gt;val &amp;lt; q-&amp;gt;val) { // 右 TreeNode* right = traversal(cur-&amp;gt;right, p, q); if (right !</description>
+    </item>
+    <item>
+      <title>2024-05-27刷题</title>
+      <link>http://localhost:1313/posts/leetcode17/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode17/</guid>
+      <description>2024-05-27刷题 Link to heading 654.最大二叉树 Link to heading 11:05&#xA;思路 Link to heading 只需要一个数组，以及开始结束索引。&#xA;终止条件 当，左索引大于右索引的时候终止。 操作逻辑 创建一个根节点，其值为 nums 中的最大值。 递归地在最大值 左边 的 子数组前缀上 构建左子树。 递归地在最大值 右边 的 子数组后缀上 构建右子树。 创建左右子树 root-&amp;gt;left = traversal(nums,start,max_index); root-&amp;gt;right = traversal(nums,max_index+1,end); return root; 注意⚠️ Link to heading int max_index = start; for(int i = start + 1 ; i &amp;lt; end ; i++){ if(nums[i] &amp;gt; nums[max_index]) max_index = i; } 题解 Link to heading C++ Link to heading /** * Definition for a binary tree node.</description>
+    </item>
+    <item>
+      <title>2024-05-25刷题</title>
+      <link>http://localhost:1313/posts/leetcode16/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode16/</guid>
+      <description>2024-05-25刷题 Link to heading 513.找树左下角的值 Link to heading 20:52&#xA;思路 Link to heading 使用层次遍历，将每层最左边的值存放在结果中。&#xA;题解 Link to heading C++ Link to heading /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: int findBottomLeftValue(TreeNode* root) { queue&amp;lt;TreeNode*&amp;gt; que; if(root) que.</description>
+    </item>
+    <item>
+      <title>2024-05-24刷题</title>
+      <link>http://localhost:1313/posts/leetcode15/</link>
+      <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode15/</guid>
+      <description>2024-05-24 Link to heading 110.平衡二叉树 Link to heading 10:36&#xA;思路 Link to heading 平衡二叉树为，该树所有节点的左右子树的深度相差不超过1&#xA;二叉树节点的深度：指从根节点到该节点的最长简单路径边的条数。 二叉树节点的高度：指从该节点到叶子节点的最长简单路径边的条数。 递归法： Link to heading 其实，各种遍历方法中对中节点的访问，并不仅仅只能是取值，也代表着访问顺序。 可以根据这一点，来选取不同的遍历方式处理问题。 比如求平衡二叉树，我需要知道当前节点的左右子树的高度然后进行比较，所以我需要先访问左右再访问当前节点进行高度差的计算。&#xA;这个顺序符合左右中的后序遍历顺序，所以可以使用后序遍历解决这个问题。&#xA;确定递归函数的参数以及返回值，因为需要知道高度所以设定返回值为高度，传递当前节点 int getHeight(TreeNode * node) 确定终止条件，当当前节点为null的时候也就是到达叶子节点的孩子，返回高度为0，终止递归 //终止条件 if(node == nullptr){ return 0; } 单层递归逻辑，调用递归函数求左高度和右高度，如果高度返回值是-1代表已经不是平衡二叉树了，将返回结果一直传递。 //左子树的高度 左 int leftHeight = getHeight(node-&amp;gt;left); //如果返回值有-1要一直传递 if(leftHeight == -1) return -1; //右子树的高度 右 int rightHeight = getHeight(node-&amp;gt;right); if(rightHeight == -1) return -1; 求高度差，如果高度差大于1则返回-1证明不是平衡二叉树，如果没有大于1，则选取左右子树的最大高度，再加上自己节点的高度1，向上返回。 //如果相差大于1返回-1代表不是平衡二叉树 if(abs(leftHeight - rightHeight) &amp;gt; 1){ // 中 return -1; }else{ return max(leftHeight,rightHeight)+1; } 题解 Link to heading C++ Link to heading /** * Definition for a binary tree node.</description>
+    </item>
+    <item>
+      <title>2024-05-23刷题</title>
+      <link>http://localhost:1313/posts/leetcode12/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode12/</guid>
+      <description>2024-05-23 刷题 Link to heading 递归实现树的三种遍历 Link to heading 先序遍历 Link to heading 打印出二叉树的先序遍历的节点&#xA;确定参数与返回值： 因为要打印出前序遍历节点的数值，所以参数里需要传入vector来放节点的数值不需要什么返回值 void traversal(TreeNode* cur, vector&amp;lt;int&amp;gt;&amp;amp; vec) 确定终止条件： 当前遍历的节点是空了，则本次递归结束 if (cur == NULL) return; 确定单层递归的逻辑 前序遍历是中左右的循序，所以在单层递归的逻辑，是要先取中节点的数值，代码如下： vec.push_back(cur-&amp;gt;val); // 取值 traversal(cur-&amp;gt;left, vec); // 遍历左树 traversal(cur-&amp;gt;right, vec); // 遍历右树 完整代码 Link to heading /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: void traversal(TreeNode *cur , vector&amp;lt;int&amp;gt; &amp;amp;result){ if(cur == nullptr) return; result.</description>
+    </item>
+    <item>
+      <title>2024-05-23刷题2</title>
+      <link>http://localhost:1313/posts/leetcode13/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode13/</guid>
+      <description>2024-05-23 刷题2 Link to heading 二叉树层次遍历 Link to heading 思路 Link to heading 需要借用一个辅助数据结构即队列来实现，队列先进先出，符合一层一层遍历的逻辑，而用栈先进后出适合模拟深度优先遍历也就是递归的逻辑。 而这种层序遍历方式就是图论中的广度优先遍历 在出队列的时候，将出队列元素的左右孩子加入队列&#xA;初始化结果数组以及需要需要的队列 每一层，出队列，并且，将下一层的节点加入队列中 因为，每次都有下一层的元素入队列，所以，需要保存当前层的数量 当下一层全部为nullptr的时候，队列为空结束 实现 Link to heading 非递归&#xA;/** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; levelOrder(TreeNode* root) { queue&amp;lt;TreeNode *&amp;gt; que; if(root !</description>
+    </item>
+    <item>
+      <title>2024-05-23刷题3</title>
+      <link>http://localhost:1313/posts/leetcode14/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/leetcode14/</guid>
+      <description>2024-05-23 刷题3 Link to heading 104.二叉树的最大深度 559.n叉树的最大深度 111.二叉树的最小深度 见2024-05-23 刷题2&#xA;222. 完全二叉树的节点个数 Link to heading 20:03&#xA;思路 Link to heading 层次遍历，然后统计个数&#xA;题解 Link to heading C++ Link to heading /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: int countNodes(TreeNode* root) { queue&amp;lt;TreeNode*&amp;gt; que; if(root) que.</description>
+    </item>
+  </channel>
+</rss>

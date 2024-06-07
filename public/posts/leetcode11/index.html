@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  2024-05-21刷题 · WOTMCCR&#39;S BLOG
+</title>
+  <meta charset="utf-8">
+<meta name="msvalidate.01" content="B41B9A48E0DC515BE32651155BBCB957" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="google-site-verification" content="yfkZl0tkaMh-IHpqKsR6ItjE6tQiJpm0PXvNHCvPVAw" />
+
+
+
+
+
+<meta name="author" content="CCR">
+<meta name="description" content=" 239. 滑动窗口最大值 347.前 K 个高频元素 总结">
+<meta name="keywords" content="Better,Faster,Stronger,">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="2024-05-21刷题">
+  <meta name="twitter:description" content=" 239. 滑动窗口最大值 347.前 K 个高频元素 总结">
+
+<meta property="og:url" content="http://localhost:1313/posts/leetcode11/">
+  <meta property="og:site_name" content="WOTMCCR&#39;S BLOG">
+  <meta property="og:title" content="2024-05-21刷题">
+  <meta property="og:description" content=" 239. 滑动窗口最大值 347.前 K 个高频元素 总结">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:tag" content="Leetcode">
+    <meta property="article:tag" content="队列">
+    <meta property="article:tag" content="单调队列">
+    <meta property="article:tag" content="优先队列">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/leetcode11/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      WOTMCCR&#39;S BLOG
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tags/">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/categories/">Categories</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/leetcode11/">
+              2024-05-21刷题
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="0001-01-01T00:00:00Z">
+                January 1, 0001
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/leetcode/">Leetcode</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/%E9%98%9F%E5%88%97/">队列</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/">单调队列</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">优先队列</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="2024-05-21">
+  2024-05-21
+  <a class="heading-link" href="#2024-05-21">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="239滑动窗口最大值">
+  239.滑动窗口最大值
+  <a class="heading-link" href="#239%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3%e6%9c%80%e5%a4%a7%e5%80%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>21:27</p>
+<h4 id="思路">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>使用一个双端队列实现一个，单调队列，保证，队列中的元素，从大到小排列，
+当使用push的时候，从后往前移除所有小于该值的元素
+当使用pop(value)的时候，如果，pop的值等于队列中front的值，则pop。
+使用front返回最大值，也就是第一个元素。</p>
+<p>每次窗口移动的时候，
+调用que.pop(滑动窗口中移除元素的数值)，移除窗口左边的元素，如果是最大值，则会pop成功，不是最大值，也不在队列里，不用处理
+que.push(滑动窗口添加元素的数值)，将新元素按又大到小放到队列里
+然后que.front()就返回我们要的最大值。</p>
+<h4 id="复杂度">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>时间复杂度: O(n)
+空间复杂度: O(k)</p>
+<h4 id="题解">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c">
+  C++
+  <a class="heading-link" href="#c">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">//单调队列
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span><span style="color:#ff7b72">private</span><span style="color:#ff7b72;font-weight:bold">:</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Myqueue</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>p
+</span></span><span style="display:flex;"><span>            deque<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> que;
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//push进入队列,如果push的数值大于入口元素的数值，那么就将队列后端的数值弹出，直到push的数值小于等于队列入口元素的数值为止。
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#8b949e;font-style:italic">// 这样就保持了队列里的数值是单调从大到小的了。
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#ff7b72">void</span> <span style="color:#d2a8ff;font-weight:bold">push</span>(<span style="color:#ff7b72">int</span> value){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">while</span>(<span style="color:#ff7b72;font-weight:bold">!</span>que.empty() <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> value <span style="color:#ff7b72;font-weight:bold">&gt;</span> que.back()){
+</span></span><span style="display:flex;"><span>                    que.pop_back();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                que.push_back(value);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//pop(value)：如果窗口移除的元素value等于单调队列的出口元素，那么队列弹出元素，否则不用任何操作
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#ff7b72">void</span> <span style="color:#d2a8ff;font-weight:bold">pop</span>(<span style="color:#ff7b72">int</span> value){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">while</span>(<span style="color:#ff7b72;font-weight:bold">!</span>que.empty() <span style="color:#ff7b72;font-weight:bold">&amp;&amp;</span> que.front() <span style="color:#ff7b72;font-weight:bold">==</span> value){
+</span></span><span style="display:flex;"><span>                    que.pop_front();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">//front返回队列中的最大值
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>            <span style="color:#ff7b72">int</span> <span style="color:#d2a8ff;font-weight:bold">front</span>(){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">return</span> que.front();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> maxSlidingWindow(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums, <span style="color:#ff7b72">int</span> k) {
+</span></span><span style="display:flex;"><span>        Myqueue que;
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span> ; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> k ; i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            que.push(nums[i]);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        result.push_back(que.front());
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> k ; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> nums.size() ; i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            que.pop(nums[i<span style="color:#ff7b72;font-weight:bold">-</span>k]);
+</span></span><span style="display:flex;"><span>            que.push(nums[i]);
+</span></span><span style="display:flex;"><span>            result.push_back(que.front());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">//multiset
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> maxSlidingWindow(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums, <span style="color:#ff7b72">int</span> k) {
+</span></span><span style="display:flex;"><span>        multiset<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> st;
+</span></span><span style="display:flex;"><span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> ans;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> (<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span>; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> nums.size(); i<span style="color:#ff7b72;font-weight:bold">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> (i <span style="color:#ff7b72;font-weight:bold">&gt;=</span> k) st.erase(st.find(nums[i <span style="color:#ff7b72;font-weight:bold">-</span> k]));
+</span></span><span style="display:flex;"><span>            st.insert(nums[i]);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span> (i <span style="color:#ff7b72;font-weight:bold">&gt;=</span> k <span style="color:#ff7b72;font-weight:bold">-</span> <span style="color:#a5d6ff">1</span>) ans.push_back(<span style="color:#ff7b72;font-weight:bold">*</span>st.rbegin());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> ans;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="347前k个高频元素">
+  347.前k个高频元素
+  <a class="heading-link" href="#347%e5%89%8dk%e4%b8%aa%e9%ab%98%e9%a2%91%e5%85%83%e7%b4%a0">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>20:59</p>
+<h4 id="思路-1">
+  思路
+  <a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>~~感觉和之前的那道题很像
+可以有一个单调队列，然后，用来维持一个频率从高到低的数组
+看了一下啊deque的用法，支持随机访问。
+所以这个单调队列，不会pop值
+front()返回最高的那个值
+pop()
+push()
+~~
+使用map来记录元素出现的次数，并且重载比较操作来构建优先队列。</p>
+<p>使用优先队列来维护一个小顶堆来保存k个频率最大的元素。</p>
+<p>之所以不使用大顶堆是因为，<code>priority_queue</code>中的<code>pop()</code>操作会移除队列顶部的元素，所以如果是使用的大顶堆当要保证优先队列中的元素个数为k个时，pop操作就会弹出最大值，而不是最小值。</p>
+<p>用固定大小为k的小顶堆，扫面所有频率的数值，最后，输出优先队列中的元素与值。</p>
+<h4 id="复杂度-1">
+  复杂度
+  <a class="heading-link" href="#%e5%a4%8d%e6%9d%82%e5%ba%a6-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>时间复杂度: O(nlogk)
+空间复杂度: O(n)</p>
+<h4 id="注意">
+  注意⚠️
+  <a class="heading-link" href="#%e6%b3%a8%e6%84%8f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h4 id="题解-1">
+  题解
+  <a class="heading-link" href="#%e9%a2%98%e8%a7%a3-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h5 id="c-1">
+  C++
+  <a class="heading-link" href="#c-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Solution</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">Mycomparsion</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">public</span><span style="color:#ff7b72;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">bool</span> <span style="color:#ff7b72">operator</span>()(<span style="color:#ff7b72">const</span> pair<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span>,<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#ff7b72;font-weight:bold">&amp;</span>lhs, <span style="color:#ff7b72">const</span> pair<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span>,<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> <span style="color:#ff7b72;font-weight:bold">&amp;</span>rhs){
+</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">return</span> lhs.second <span style="color:#ff7b72;font-weight:bold">&gt;</span> rhs.second;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> topKFrequent(vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&amp;</span> nums, <span style="color:#ff7b72">int</span> k) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        unordered_map<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span>,<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> map;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">0</span> ; i <span style="color:#ff7b72;font-weight:bold">&lt;</span> nums.size() ; i<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            map[nums[i]]<span style="color:#ff7b72;font-weight:bold">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//用固定大小k的最小堆，扫描所有频率的数值
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        priority_queue<span style="color:#ff7b72;font-weight:bold">&lt;</span>pair<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span>,<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span>,vector<span style="color:#ff7b72;font-weight:bold">&lt;</span>pair<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span>,<span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;&gt;</span>,Mycomparsion<span style="color:#ff7b72;font-weight:bold">&gt;</span> pri_que;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">auto</span> it <span style="color:#ff7b72;font-weight:bold">=</span> map.begin() ; it <span style="color:#ff7b72;font-weight:bold">!=</span> map.end() ; it<span style="color:#ff7b72;font-weight:bold">++</span>){
+</span></span><span style="display:flex;"><span>            pri_que.push(<span style="color:#ff7b72;font-weight:bold">*</span>it);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">if</span>(pri_que.size() <span style="color:#ff7b72;font-weight:bold">&gt;</span> k){
+</span></span><span style="display:flex;"><span>                pri_que.pop();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b949e;font-style:italic">//输出，因为，是最小堆所以倒叙
+</span></span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"></span>        vector<span style="color:#ff7b72;font-weight:bold">&lt;</span><span style="color:#ff7b72">int</span><span style="color:#ff7b72;font-weight:bold">&gt;</span> result(k);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span>(<span style="color:#ff7b72">int</span> i <span style="color:#ff7b72;font-weight:bold">=</span> k <span style="color:#ff7b72;font-weight:bold">-</span> <span style="color:#a5d6ff">1</span> ; i<span style="color:#ff7b72;font-weight:bold">&gt;=</span><span style="color:#a5d6ff">0</span> ; i<span style="color:#ff7b72;font-weight:bold">--</span>){
+</span></span><span style="display:flex;"><span>            result[i] <span style="color:#ff7b72;font-weight:bold">=</span> pri_que.top().first;
+</span></span><span style="display:flex;"><span>            pri_que.pop();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     CCR 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MEASUREMENT_ID');
+        }
+      </script>
+    
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

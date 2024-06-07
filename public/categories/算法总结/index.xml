@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法总结 on WOTMCCR&#39;S BLOG</title>
+    <link>http://localhost:1313/categories/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 算法总结 on WOTMCCR&#39;S BLOG</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>二叉树遍历总结</title>
+      <link>http://localhost:1313/posts/summary1/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/summary1/</guid>
+      <description>二叉树遍历总结 Link to heading 2024-05-23 回忆：今天学习了二叉树的四种遍历方式，先序遍历，中序遍历，后序遍历，层序遍历。分别使用递归以及迭代的方法实现了这四种遍历方式。&#xA;递归实现三种遍历 Link to heading 前中后三种遍历方式，分别代表访问节点的顺序所以，只要更改访问顺序即可实现。&#xA;传递当前节点，以及结果数组 当前节点为nullptr的时候返回 if(cur == nullptr) return; 然后下面三句的顺序，代表中左右，遍历，同理，当中序遍历和后序遍历的时候，更改这几行的顺序即可 //先序遍历 result.push_back(cur-&amp;gt;val); traversal(cur-&amp;gt;left,result); traversal(cur-&amp;gt;right,result); //中序遍历 traversal(cur-&amp;gt;left,vec); //遍历左 vec.push_back(cur-&amp;gt;val); //取 traversal(cur-&amp;gt;right,vec); //遍历右 //后序遍历 traversal(cur-&amp;gt;left,vec); //遍历左 traversal(cur-&amp;gt;right,vec); //遍历右 vec.push_back(cur-&amp;gt;val); //取 完整代码&#xA;/** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode() : val(0), left(nullptr), right(nullptr) {} * TreeNode(int x) : val(x), left(nullptr), right(nullptr) {} * TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {} * }; */ class Solution { public: void traversal(TreeNode *cur , vector&amp;lt;int&amp;gt; &amp;amp;result){ if(cur == nullptr) return; //先序遍历 result.</description>
+    </item>
+  </channel>
+</rss>
