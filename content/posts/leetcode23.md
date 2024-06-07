@@ -29,7 +29,7 @@ description: 切割问题
             sum-=candidates[i];
         }
 ```
-![[Screenshot 2024-06-06 at 17.00.08.png]]
+![[../static/attachments/Screenshot 2024-06-06 at 17.00.08.png]]
 相当于在下一层中，再选取下一个元素。
 #### 题解
 ##### C++
@@ -74,10 +74,10 @@ public:
 **集合（数组candidates）有重复元素，但结果还不能有重复的组合**。
 
 **所以我们要去重的是同一树层上的“使用过”，同一树枝上的都是一个组合里的元素，不用去重**。
-![[Screenshot 2024-06-06 at 19.26.12.png]]
+![[../static/attachments/Screenshot 2024-06-06 at 19.26.12.png]]
 
 需要使用一个数组，来存储元素是否使用`vector<bool>& used `
-![[Screenshot 2024-06-06 at 19.30.25.png]]
+![[../static/attachments/Screenshot 2024-06-06 at 19.30.25.png]]
 可以看出在candidates[i] == candidates[i - 1]相同的情况下：
 - used[i - 1] == true，说明同一树枝candidates[i - 1]使用过
 - used[i - 1] == false，说明同一树层candidates[i - 1]使用过
