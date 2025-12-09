@@ -26,16 +26,6 @@ menu:
       url: /projects/
       weight: 10
 
-    - identifier: papers
-      name: Papers
-      url: /papers/
-      weight: 20
-
-    - identifier: algorithms
-      name: Algorithms
-      url: /algorithms/
-      weight: 30
-
     - identifier: cs
       name: CS Notes
       url: /cs/
@@ -45,11 +35,6 @@ menu:
       name: Languages
       url: /languages/
       weight: 50
-
-    - identifier: english
-      name: English
-      url: /english/
-      weight: 60
 
     - identifier: life
       name: Life
@@ -83,11 +68,8 @@ params:
   # 首页显示哪些 Section
   mainSections:
     - projects
-    - papers
-    - algorithms
     - cs
     - languages
-    - english
     # life & fiction 仍然存在，只是不刷到首页
 
   # PaperMod 的行为参数（根据官方 exampleSite 精简版）:contentReference[oaicite:3]{index=3}
