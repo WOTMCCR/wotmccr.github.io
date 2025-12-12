@@ -69,7 +69,7 @@ params:
   mainSections:
     - projects
     - cs
-    - languages
+    # - languages
     # life & fiction 仍然存在，只是不刷到首页
 
   # PaperMod 的行为参数（根据官方 exampleSite 精简版）:contentReference[oaicite:3]{index=3}
