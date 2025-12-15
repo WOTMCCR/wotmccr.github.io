@@ -3,7 +3,7 @@ title: "Python基础语法"
 summary: "基础操作，容器数据类型，以及函数"
 tags: ["Python"]
 categories: ["languages"]
-created: 2025-12-11 09:00
+date: 2025-12-11
 draft: "false"
 showToc: "true"
 ---

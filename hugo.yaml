@@ -1,6 +1,15 @@
 baseURL: "https://wotmccr.github.io/"
 languageCode: "zh-CN"
 title: WOCCR'S Blog
+
+# 配置日期字段识别，支持 create/created 等自定义字段
+frontmatter:
+  date:
+    - date
+    - created
+    - create
+    - publishDate
+    - lastmod
 theme: ["PaperMod"]
 pagination:
   pagerSize: 10

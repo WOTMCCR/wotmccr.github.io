@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wotmccr.github.io/sitemap.xml
