@@ -2,7 +2,7 @@
 title: "1212Log"
 tags: ["日记"]
 categories: ["life"]
-create : 2025-12-12
+date: 2025-12-12
 draft: "false"
 ---
 
